@@ -19,3 +19,17 @@
         <a href="viewEntries.jsp" method="get">Add/View Reviews</a>
     </body>
 </html>
+
+
+<%-- 
+    servlet for:
+-logging in
+-logged out
+-registering (verify registration)
+-connecting pool
+-create database, connect database, write to database
+-deleting users
+-deleting movies
+-check if user wrote review
+-calculate movie score
+--%>
