@@ -12,6 +12,6 @@
         <title>Movies</title>
     </head>
     <body>
-        <h1>Movie List</h1>
+        <h1>Movie Lis</h1>
     </body>
 </html>
