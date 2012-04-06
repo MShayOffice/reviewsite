@@ -8,4 +8,44 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>DisplayUsersServlet</servlet-name>
+        <servlet-class>user.DisplayUsersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayUserServlet</servlet-name>
+        <servlet-class>user.DisplayUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>user.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>user.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addUser</servlet-name>
+        <servlet-class>user.addUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayUsersServlet</servlet-name>
+        <url-pattern>/displayUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayUserServlet</servlet-name>
+        <url-pattern>/displayUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/updateUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addUser</servlet-name>
+        <url-pattern>/addUser</url-pattern>
+    </servlet-mapping>
 </web-app>
