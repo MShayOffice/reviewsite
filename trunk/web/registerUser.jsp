@@ -14,16 +14,16 @@
     <body>
         <h1>Register User</h1>
         
-        <form action="registerUser" method="post">
+        <form action="addUser" method="post">
   <table cellspacing="5" border="0">
 
     <tr>
       <td align="right">Username:</td>
-      <td><input type="text" name="usertName"></td>
+      <td><input type="text" name="user.username"></td>
     </tr>
     <tr>
       <td align="right">Email address:</td>
-      <td><input type="text" name="emailAddress"></td>
+      <td><input type="text" name="user.emailAddress"></td>
     </tr>
     <tr>
         <td align="right">Confirm Email:</td>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
         <td align="right">Password:</td>
-        <td><input type="text" name="password"></td>
+        <td><input type="text" name="user.password"></td>
     </tr>
     <tr>
         <td align="right">Confirm Password:</td>
