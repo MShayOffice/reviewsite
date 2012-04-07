@@ -4,7 +4,7 @@
     Author     : Kyle
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +12,13 @@
         <title>Movies</title>
     </head>
     <body>
-        <h1>Movie List</h1>
+        <h1>Click a movie for details, ratings, and reviews!</h1>
+        
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        
+    <c:forEach var="movie" items="${movies}">
+    ${movie.name}<br>
+    </c:forEach>
+        
     </body>
 </html>

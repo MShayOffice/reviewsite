@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Kyle
  */
-public class addUserServlet extends HttpServlet {
+public class AddUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, 
             HttpServletResponse response) 
