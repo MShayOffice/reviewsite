@@ -14,7 +14,7 @@ public class ConnectionPool
         try
         {
             InitialContext ic = new InitialContext();
-            dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/project");
+            dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/murach");
         }
         catch(Exception e)
         {

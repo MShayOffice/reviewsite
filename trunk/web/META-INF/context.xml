@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+*************Note to teammates: ****************
+If the context.xml isn't working for you, maybe copy/paste the code from a working
+database-using context.xml file, then comment out the previous one so we can just switch between them.
+
+Also, that line at the top has to be at the verrrrry top of it. I didn't realize this
+and had to troubleshoot, heh.
+-->
+
 <Context antiJARLocking="true" path="/ReviewSite">
-<Realm className="org.apache.catalina.realm.JDBCRealm" debug="99"
-          driverName="com.mysql.jdbc.Driver"
-          connectionURL="jdbc:mysql://localhost:3306/project"
-          connectionName="root" connectionPassword="!nowNOW@"
-          userTable="Users" userNameCol="UserName" userCredCol="Password"
-          /> 
-          </Context>
+    <Resource name="jdbc/murach" auth="Container" 
+        maxActive="100" maxIdle="30" maxWait="10000" 
+        username="root" password="" 
+        driverClassName="com.mysql.jdbc.Driver" 
+        url="jdbc:mysql://localhost:3306/murach?autoReconnect=true" 
+        logAbandoned="true" removeAbandoned="true" 
+        removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+</Context>
