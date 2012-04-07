@@ -19,11 +19,11 @@
 
     <tr>
       <td align="right">Username:</td>
-      <td><input type="text" name="user.username"></td>
+      <td><input type="text" name="username"></td>
     </tr>
     <tr>
       <td align="right">Email address:</td>
-      <td><input type="text" name="user.emailAddress"></td>
+      <td><input type="text" name="emailAddress"></td>
     </tr>
     <tr>
         <td align="right">Confirm Email:</td>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
         <td align="right">Password:</td>
-        <td><input type="text" name="user.password"></td>
+        <td><input type="text" name="password"></td>
     </tr>
     <tr>
         <td align="right">Confirm Password:</td>
