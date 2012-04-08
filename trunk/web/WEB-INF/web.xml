@@ -2,6 +2,10 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <servlet>
+        <servlet-name>AddMovieServlet</servlet-name>
+        <servlet-class>movie.AddMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddUserServlet</servlet-name>
         <servlet-class>user.AddUserServlet</servlet-class>
     </servlet>
@@ -9,6 +13,10 @@
         <servlet-name>ListMoviesServlet</servlet-name>
         <servlet-class>movie.ListMoviesServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>AddMovieServlet</servlet-name>
+        <url-pattern>/addMovie</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddUserServlet</servlet-name>
         <url-pattern>/addUser</url-pattern>
