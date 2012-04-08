@@ -18,7 +18,7 @@
                 form.movieName.focus();
             }
             else if (form.year.value=="") {
-                alert("Please enter a year of release");
+                alert("Please enter the year of release");
                 form.year.focus();
             }
             else if (form.description.value=="") {
