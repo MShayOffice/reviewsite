@@ -19,7 +19,7 @@
         <a href="ListReviewsServlet?movie=${movie.name}" method="get">${movie.name}</a><br>
     </c:forEach>
     
-    
+        <br><a href="addMovie.jsp" method="get">Add a New Movie</a>
         
     </body>
 </html>
