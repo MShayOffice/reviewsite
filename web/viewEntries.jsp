@@ -19,6 +19,8 @@
     <c:forEach var="movie" items="${movies}">
     ${movie.name}<br>
     </c:forEach>
+    
+    
         
     </body>
 </html>
