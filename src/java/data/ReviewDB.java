@@ -4,9 +4,7 @@
  */
 package data;
 
-import business.MovieItem;
 import business.Review;
-import business.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -26,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReviewDB{
 
     
-  public static ArrayList<Review> selectReview(String movie)
+  public static ArrayList<Review> selectReview(String movieID)
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
@@ -39,12 +37,12 @@ public class ReviewDB{
                 + " MovieName, Year, Description, ReviewText, Rating FROM "
                 + "Reviews INNER JOIN Users on Reviews.UserID = Users.UserID "
                 + " JOIN Movies on Reviews.MovieID = Movies.MovieID;" +
-                       "WHERE MovieName = ?";
+                       "WHERE MovieID = ?";
         
         try
         {   
             ps = connection.prepareStatement(query);
-            ps.setString(1, movie);
+            ps.setString(1, movieID);
             rs = ps.executeQuery();
             Review review = null;
             

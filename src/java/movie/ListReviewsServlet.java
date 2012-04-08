@@ -22,8 +22,8 @@ import javax.servlet.http.*;
     {
         
         HttpSession session = request.getSession();
-        String movie = request.getParameter("movie");
-        ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(movie));
+        String MovieID = request.getParameter("ID");
+        ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(MovieID));
         
         session.setAttribute("reviews", reviews);
         
