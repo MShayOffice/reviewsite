@@ -2,19 +2,134 @@ package data;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 import business.User;
 
 public class UserDB
 {
-    public static int insert(User user)
+    
+    public static String insertPending(String username,
+            String password,
+            String emailaddress)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        SecureRandom random = new SecureRandom();
+        String urlcode = new BigInteger(130, random).toString(32);
+            
+        String query = 
+                "INSERT INTO pendinguser (Username, Password, EmailAddress, URL) " +
+                "VALUES (?, ?, ?, ?)";
+        
+        try
+        {           
+            ps = connection.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, emailaddress);
+            ps.setString(4, urlcode);
+            ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            return e.getMessage();
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        
+        return urlcode;
+    }
+    
+       public static int deletePending(String urlcode) throws SQLException
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        
+        String query = "DELETE FROM pendinguser " +
+                "WHERE URL = ?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, urlcode);
+
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+        /**
+     
+     * Handles the HTTP
+     * <code>checkPending</code> method.
+     *
+     * @param urlcode string
+     * @throws SQLException if a SQL-specific error occurs
+     */
+      public static String checkPending(String urlcode)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "Select * FROM pendinguser " +
+                "WHERE URL = ?";
+        
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, urlcode);
+            rs = ps.executeQuery();
+            
+            User objUser = null;
+            if (rs.next())
+            {
+                objUser = new User();
+                objUser.setUserName(rs.getString("Username"));
+                objUser.setPassword(rs.getString("Password"));
+                objUser.setEmailAddress(rs.getString("EmailAddress"));
+                insert(objUser);
+                deletePending(rs.getString("URL"));
+            }            
+        }
+        catch (SQLException e){
+            
+            return e.getMessage();
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        return null;
+    }
+    
+    
+    public static int insert(User user) throws SQLException
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
         String query = 
-                "INSERT INTO Users (UserName, Password, Email) " +
+                "INSERT INTO Users (UserName, Password, EmailAddress) " +
                 "VALUES (?, ?, ?)";
         try
         {        
