@@ -23,18 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Kyle
  */
-public class ReviewDB extends HttpServlet {
+public class ReviewDB{
 
-    /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     
   public static ArrayList<Review> selectReview(String movie)
     {

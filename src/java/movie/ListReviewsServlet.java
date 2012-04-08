@@ -20,8 +20,9 @@ import javax.servlet.http.*;
             HttpServletResponse response)
             throws ServletException, IOException
     {
-        String movie = request.getParameter("movie");
+        
         HttpSession session = request.getSession();
+        String movie = request.getParameter("movie");
         ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(movie));
         
         session.setAttribute("reviews", reviews);
