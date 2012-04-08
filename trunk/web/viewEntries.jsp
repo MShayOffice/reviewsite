@@ -15,9 +15,8 @@
         <h1>Click a movie for details, ratings, and reviews!</h1>
         
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        
     <c:forEach var="movie" items="${movies}">
-    ${movie.name}<br>
+        <a href="ListReviewsServlet?movie=${movie.name}" method="get">${movie.name}</a><br>
     </c:forEach>
     
     
