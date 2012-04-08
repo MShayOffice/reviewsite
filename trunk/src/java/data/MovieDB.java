@@ -21,26 +21,66 @@ public class MovieDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-
         String query = "SELECT MAX(MovieID) FROM Movies";
-        
+
         try
         {
             ps = connection.prepareStatement(query);
             rs = ps.executeQuery();
-            int id = 0;
-            
-            id = rs.getInt("MovieID")+1;
-            
-            query = "INSERT INTO Movies (MovieID, MovieName, Year, Description)"
-                    + "VALUES (?, ?, ?, ?)";
+            rs.first();
+            int id = (rs.getInt(1)+1);
 
+            query = "INSERT INTO Movies (MovieID, MovieName, Year, Description)"
+                + "VALUES (?, ?, ?, ?)";
+
+            try
+            {
+                ps = connection.prepareStatement(query);
+                ps.setInt(1, id);
+                ps.setString(2, movie.getName());
+                ps.setString(3, movie.getYear());
+                ps.setString(4, movie.getDescription());
+                return ps.executeUpdate();
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+                return 0;
+            }
+            finally
+            {
+                DBUtil.closePreparedStatement(ps);
+                pool.freeConnection(connection);
+            }
+        }
+        
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }        
+    }
+    
+    public static int getID()
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT MAX(MovieID) FROM movies";
+        try
+        {
             ps = connection.prepareStatement(query);
-            ps.setInt(1, id);
-            ps.setString(2, movie.getName());
-            ps.setString(3, movie.getYear());
-            ps.setString(4, movie.getDescription());
-            return ps.executeUpdate();
+            rs = ps.executeQuery();
+            rs.first();
+            int id = (rs.getInt(1)+1);
+            return id;
         }
         catch(SQLException e)
         {
@@ -52,6 +92,7 @@ public class MovieDB {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }        
+
     }
     
     public static ArrayList<MovieItem> listMovies()

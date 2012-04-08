@@ -40,20 +40,24 @@
                 <tr>
                     <td align="right">Movie name:</td>
                     <td><input type="text" name="movieName" 
-                            value="${movie.movieName}">
+                            value="">
                     </td>
                 </tr>
                 <tr>
                     <td align="right">Year of release:</td>
                     <td><input type="text" name="year" 
-                            value="${movie.year}">
+                            value="">
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Description:</td>
-                    <td><input type="text" name="description" 
-                            value="${movie.description}">
+                    <td align="right" valign="top">Description:</td>
+                    <td><textarea name="description" rows=3 cols=30 
+                            value=""></textarea>
                     </td>
+                </tr>
+                    <td></td>
+                    <td><input type="button" value="Submit" 
+                            onClick="validate(this.form)"></td>
                 </tr>
             </table>
         </form>
