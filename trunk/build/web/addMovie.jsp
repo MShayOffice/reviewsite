@@ -11,7 +11,51 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <h1>Hello World!</h1>
+        <script language="JavaScript">
+        function validate(form) {
+            if (form.movieName.value=="") {
+                alert("Please provide the movie's name");
+                form.movieName.focus();
+            }
+            else if (form.year.value=="") {
+                alert("Please enter a year of release");
+                form.year.focus();
+            }
+            else if (form.description.value=="") {
+                alert("Please enter a description");
+                form.description.focus();
+            }
+            else {
+                form.submit();
+            }
+        }
+        </script>
+
+        <body>
+
+        <h1>Please fill the fields to add a new movie.</h1>
+
+        <form action="addMovie" method="post">
+            <table cellspacing="5" border="0">
+                <tr>
+                    <td align="right">Movie name:</td>
+                    <td><input type="text" name="movieName" 
+                            value="${movie.movieName}">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Year of release:</td>
+                    <td><input type="text" name="year" 
+                            value="${movie.year}">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Description:</td>
+                    <td><input type="text" name="description" 
+                            value="${movie.description}">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </body>
 </html>

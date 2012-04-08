@@ -26,7 +26,10 @@
     <servlet>
         <servlet-name>Review</servlet-name>
         <servlet-class>business.Review</servlet-class>
-    </servlet>    <servlet-mapping>
+    </servlet>
+<!--  This space is here to split the classes and URL patterns
+      because regular spaces like to go away in this file-->    
+    <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
     </servlet-mapping>
@@ -52,7 +55,10 @@
     <servlet-mapping>
         <servlet-name>Review</servlet-name>
         <url-pattern>/Review</url-pattern>
-    </servlet-mapping>    <session-config>
+    </servlet-mapping>
+<!--  This space is here to signify the end of the servlet mapping
+      because regular spaces like to go away in this file-->    
+    <session-config>
         <session-timeout>
             30
         </session-timeout>
