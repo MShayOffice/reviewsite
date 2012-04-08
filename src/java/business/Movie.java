@@ -5,23 +5,29 @@ import java.io.Serializable;
  *
  * @author Chappy
  */
-public class MovieItem implements Serializable
+public class Movie implements Serializable
 {
     //MovieID, MovieName, Year, Description
     
     private String movieID;
     private String movieName;
+    private String year;
+    private String description;
     
-    public MovieItem()
+    public Movie()
     {
         movieID = "";
         movieName = "";
+        year = "";
+        description = "";
     }
     
-    public MovieItem(String id, String name)
+    public Movie(String id, String name, String yr, String desc)
     {
         movieID = id;
         movieName = name;
+        year = yr;
+        description = desc;
     }
     
     public void setID(String i)
@@ -42,5 +48,25 @@ public class MovieItem implements Serializable
     public String getName()
     {
         return movieName;
+    }
+    
+    public void setYear(String y)
+    {
+        year = y;
+    }
+    
+    public String getYear()
+    {
+        return year;
+    }
+    
+    public void setDescription(String d)
+    {
+        description = d;
+    }
+    
+    public String getDescription()
+    {
+        return description;
     }
 }
