@@ -15,7 +15,7 @@
     <servlet>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
         <servlet-class>user.ComfirmNewUserServlet</servlet-class>
-    </servlet>  <servlet>
+    </servlet>    <servlet>
         <servlet-name>ReviewDB</servlet-name>
         <servlet-class>data.ReviewDB</servlet-class>
     </servlet>
