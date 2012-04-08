@@ -21,7 +21,7 @@ import data.MailUtilGmail;
 public class AddUserServlet extends HttpServlet {
 
     
-    private void sendEmail(String urlcode, String username, String emailAddress){
+   private void sendEmail(String urlcode, String username, String emailAddress){
     // send email to user
         String to = emailAddress;
         String from = "reviewsite.info3120@gmail.com";
@@ -74,7 +74,7 @@ public class AddUserServlet extends HttpServlet {
         String urlcode = UserDB.insertPending(username, password, emailAddress);
                
         //email link to user
-        sendEmail(urlcode, username, emailAddress);
+        //sendEmail(urlcode, username, emailAddress);
         
        
 //        User user = new User();
