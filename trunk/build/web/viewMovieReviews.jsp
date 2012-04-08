@@ -15,7 +15,7 @@
         <h1></h1>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="reviews" items="${reviews}">
-        ${Review.ReviewText}<br>
+        ${review.ReviewText}<br>
     </c:forEach>
     </body>
 </html>

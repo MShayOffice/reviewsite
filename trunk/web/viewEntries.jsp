@@ -16,7 +16,7 @@
         
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="movie" items="${movies}">
-        <a href="ListReviewsServlet?movie=${movie.name}" method="get">${movie.name}</a><br>
+        <a href="ListReviewsServlet?ID=${movie.ID}" method="get">${movie.name}</a><br>
     </c:forEach>
     
         <br><a href="addMovie.jsp" method="get">Add a New Movie</a>
