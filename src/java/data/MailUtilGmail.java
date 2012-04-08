@@ -2,11 +2,9 @@ package data;
 
 
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
-import org.apache.catalina.Session;
 
 public class MailUtilGmail
 {

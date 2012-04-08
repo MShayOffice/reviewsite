@@ -24,6 +24,10 @@
         <servlet-class>movie.ListReviewsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeleteMovieServlet</servlet-name>
+        <servlet-class>movie.DeleteMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Review</servlet-name>
         <servlet-class>business.Review</servlet-class>
     </servlet>
@@ -50,7 +54,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListReviewsServlet</servlet-name>
-        <url-pattern>/ListReviewsServlet</url-pattern>
+        <url-pattern>/ListReviews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMovieServlet</servlet-name>
+        <url-pattern>DeleteMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Review</servlet-name>

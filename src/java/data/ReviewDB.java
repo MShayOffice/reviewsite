@@ -4,27 +4,31 @@
  */
 package data;
 
-import business.Review;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import business.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  *
  * @author Kyle
  */
-public class ReviewDB{
+public class ReviewDB extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     
-  public static ArrayList<Review> selectReview(String movieID)
+  public static ArrayList<Review> selectReview(String movie)
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
@@ -37,12 +41,12 @@ public class ReviewDB{
                 + " MovieName, Year, Description, ReviewText, Rating FROM "
                 + "Reviews INNER JOIN Users on Reviews.UserID = Users.UserID "
                 + " JOIN Movies on Reviews.MovieID = Movies.MovieID;" +
-                       "WHERE MovieID = ?";
+                       "WHERE MovieName = ?";
         
         try
         {   
             ps = connection.prepareStatement(query);
-            ps.setString(1, movieID);
+            ps.setString(1, movie);
             rs = ps.executeQuery();
             Review review = null;
             
