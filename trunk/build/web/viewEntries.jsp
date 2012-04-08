@@ -14,11 +14,15 @@
     <body>
         <h1>Click a movie for details, ratings, and reviews!</h1>
         
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <c:forEach var="movie" items="${movies}">
-        <a href="ListReviewsServlet?ID=${movie.ID}" method="get">${movie.name}</a><br>
-    </c:forEach>
-    
+        <table cellpadding=5 border=0>
+            <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+            <c:forEach var="movie" items="${movies}">
+                <tr>
+                    <td><a href="ListReviews?ID=${movie.movieID}" method="get">${movie.movieName}</a></td>
+                    <td><a href="DeleteMovie?id=${movie.movieID}">X</a></td>
+                </tr>
+            </c:forEach>
+        </table>
         <br><a href="addMovie.jsp" method="get">Add a New Movie</a>
         
     </body>

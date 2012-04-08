@@ -53,7 +53,6 @@ public class MovieDB {
                 pool.freeConnection(connection);
             }
         }
-        
         catch(SQLException e)
         {
             e.printStackTrace();
@@ -64,6 +63,35 @@ public class MovieDB {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }        
+    }
+    
+    public static int delete(String movieID)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        
+        String id = movieID;
+        
+        String query = "DELETE FROM Movies WHERE MovieID = ?";
+        
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, id);
+
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }   
     }
     
     public static int getID()
