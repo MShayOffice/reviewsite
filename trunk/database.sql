@@ -57,7 +57,7 @@ CREATE TABLE `movies` (
   `Year` int(10) unsigned NOT NULL,
   `Description` varchar(5000) NOT NULL,
   PRIMARY KEY (`MovieID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,34 +66,8 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'Casablanca',1942,'Romance forms between a soldier and some woman in Casablanca'),(2,'Avatar',2010,'Blue people in space! WHEE!'),(3,'The Smurfs',2011,'Blue people in New York! WHEE!'),(4,'Interstella 5555',2005,'Blue people in a band! WHEE!'),(5,'Terminator 2: Judgement Day',1992,'A shapeshifting robot from the future comes back to kill John Connor and Arnold Schwarzeneggar\'s not happy about it'),(6,'Transformers',2008,'Explosions, robots, bad acting, bad writing, baaaad jokes'),(7,'Citizen Kane',1930,'Time travelling media mogul Fernando Kane writes stories about his travels atop the majestic spacecraft Rosebud in this heartwarming romp.'),(8,'The Dark Knight',2008,'The Joker\'s wreaking havoc on Gotham and Batman isn\'t happy about it'),(9,'Toy Story',1995,'A new toy joins a bunch of them and Woody isn\'t happy about it'),(10,'Toy Story 2',2001,'Woody\'s gonna be a bigshot toy in Japan and Buzzy isn\'t happy about it'),(11,'Toy Story 3',2011,'Andy\'s moving to college and the toys aren\'t happy about it'),(12,'12 Angry Men',1937,'12 jurors have to discuss a case and they\'re not happy about it'),(13,'The Social Network',2010,'The creator of Facebook is in legal trouble and he\'s not happy about it'),(14,'Star Wars',1975,'A long time ago in a galaxy far far away, Darth Vader is blowing up planets. Luke Skywalker isn\'t happy about it.');
+INSERT INTO `movies` VALUES (3,'The Smurfs',2011,'Blue people in New York! WHEE!'),(5,'Terminator 2: Judgement Day',1992,'A shapeshifting robot from the future comes back to kill John Connor and Arnold Schwarzeneggar\'s not happy about it'),(6,'Transformers',2008,'Explosions, robots, bad acting, bad writing, baaaad jokes'),(7,'Citizen Kane',1930,'Time travelling media mogul Fernando Kane writes stories about his travels atop the majestic spacecraft Rosebud in this heartwarming romp.'),(8,'The Dark Knight',2008,'The Joker\'s wreaking havoc on Gotham and Batman isn\'t happy about it'),(9,'Toy Story',1995,'A new toy joins a bunch of them and Woody isn\'t happy about it'),(10,'Toy Story 2',2001,'Woody\'s gonna be a bigshot toy in Japan and Buzzy isn\'t happy about it'),(11,'Toy Story 3',2011,'Andy\'s moving to college and the toys aren\'t happy about it'),(14,'Star Wars',1975,'A long time ago in a galaxy far far away, Darth Vader is blowing up planets. Luke Skywalker isn\'t happy about it.'),(15,'Titanic',1999,'The fantastic voyage of this famous unsinkable ship. No icebergs here!'),(16,'Schindler\'s List',1982,'Hitler\'s killing Jews, and Oscar Schindler\'s not happy about it.'),(17,'Dude, Where\'s My car?',1993,'Dude\'s car\'s gone, and he\'s not happy about it.'),(18,'The Big Lebowski',1997,'The dude\'s rug got pissed on, and the dude\'s not happy about it.'),(19,'Inception',2010,'BRWWWWWWWAAAAAAAAAAAAAWWWWWWWWMMMMMM');
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pendinguser`
---
-
-DROP TABLE IF EXISTS `pendinguser`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pendinguser` (
-  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Username` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
-  `EmailAddress` varchar(45) NOT NULL,
-  `URL` varchar(45) NOT NULL,
-  PRIMARY KEY (`ID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3132 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pendinguser`
---
-
-LOCK TABLES `pendinguser` WRITE;
-/*!40000 ALTER TABLE `pendinguser` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pendinguser` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -136,7 +110,7 @@ CREATE TABLE `user` (
   `LastName` varchar(50) DEFAULT NULL,
   `EmailAddress` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,6 +183,7 @@ CREATE TABLE `users` (
   `Username` varchar(45) NOT NULL,
   `EmailAddress` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
+  `Permission` int(10) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -219,7 +194,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'MikeOShay','mike1022_@hotmail.com','admin'),(2,'xXxKyle547xXx','iamkyle@gmail.gov','burkinafaso'),(3,'LittleShelly','john@neopets.net','ilovelucy');
+INSERT INTO `users` VALUES (1,'MikeOShay','mike1022_@hotmail.com','admin',1),(2,'xXxKyle547xXx','iamkyle@gmail.gov','burkinafaso',1),(3,'LittleShelly','john@neopets.net','ilovelucy',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -232,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-04-08  0:55:59
+-- Dump completed on 2012-04-08 20:36:56
