@@ -55,7 +55,7 @@
         <br>
     </c:forEach>
         <br>
-        <form action="viewEntries.jsp" method="post">
+        <form action="listMovies" method="post">
             <input type="submit" value="Back to Movie List">
         </form>
     </body>
