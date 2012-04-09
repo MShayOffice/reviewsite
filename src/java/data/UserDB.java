@@ -105,6 +105,7 @@ public class UserDB
                 objUser.setPassword(rs.getString("Password"));
                 objUser.setEmailAddress(rs.getString("EmailAddress"));
                 insert(objUser);
+                insertRole(objUser, "ReviewCreator");
                 deletePending(rs.getString("URL"));
             }            
         }
@@ -121,7 +122,35 @@ public class UserDB
         return null;
     }
     
-    
+    private static int insertRole(User user, String userrole) throws SQLException
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query = 
+                "INSERT INTO UserRole (UserName, RoleName) " +
+                "VALUES (?, ?)";
+        try
+        {        
+            ps = connection.prepareStatement(query);
+            ps.setString(1, user.getUserName());
+            ps.setString(2, userrole);
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+      
+      
     public static int insert(User user) throws SQLException
     {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -129,7 +158,7 @@ public class UserDB
         PreparedStatement ps = null;
 
         String query = 
-                "INSERT INTO Users (UserName, Password, EmailAddress) " +
+                "INSERT INTO Users (UserName, Password, Email) " +
                 "VALUES (?, ?, ?)";
         try
         {        

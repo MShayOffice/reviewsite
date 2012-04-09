@@ -74,7 +74,7 @@ public class AddUserServlet extends HttpServlet {
         String urlcode = UserDB.insertPending(username, password, emailAddress);
                
         //email link to user
-        //sendEmail(urlcode, username, emailAddress);
+        sendEmail(urlcode, username, emailAddress);
         
        
 //        User user = new User();

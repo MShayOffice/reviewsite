@@ -7,12 +7,14 @@ public class User implements Serializable
     private String username;
     private String password;
     private String emailAddress;
+    //private String userrole;
     
     public User()
     {
         username = "";
         password = "";
         emailAddress = "";
+        //userrole = "";
     }
     
     public User(String username, String password, String emailAddress)
@@ -21,6 +23,14 @@ public class User implements Serializable
         this.password = password;
         this.emailAddress = emailAddress;
     }
+
+//    public User(String username, String password, String emailAddress, String userRole)
+//    {
+//        this.username = username;
+//        this.password = password;
+//        this.emailAddress = emailAddress;
+//        this.userrole = userRole;
+//    }
     
     public void setUserName(String u)
     {
@@ -50,4 +60,14 @@ public class User implements Serializable
     { 
         return emailAddress; 
     }
+    
+//    public void setUserRole(String ur)
+//    {
+//        userrole = ur;
+//    }
+//
+//    public String getUserRole()
+//    { 
+//        return userrole; 
+//    }
 }
