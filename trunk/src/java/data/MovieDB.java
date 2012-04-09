@@ -103,35 +103,7 @@ public class MovieDB {
 //        String id = movieID;
 //    }            
 //    
-    public static int getID()
-    {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String query = "SELECT MAX(MovieID) FROM movies";
-        try
-        {
-            ps = connection.prepareStatement(query);
-            rs = ps.executeQuery();
-            rs.first();
-            int id = (rs.getInt(1)+1);
-            return id;
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-            return 0;
-        }
-        finally
-        {
-            DBUtil.closePreparedStatement(ps);
-            pool.freeConnection(connection);
-        }        
-
-    }
-    
+  
     public static ArrayList<MovieItem> listMovies()
     {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -141,7 +113,7 @@ public class MovieDB {
 
         ArrayList<MovieItem> movies=new ArrayList<MovieItem>();
         
-        String query = "SELECT MovieName, MovieID FROM Movies ORDER BY MovieName ASC";
+        String query = "SELECT * FROM Movies ORDER BY MovieName ASC";
         
         try
         {   
@@ -170,40 +142,40 @@ public class MovieDB {
         return movies;
         
     }
-        public static Movie findMovie(String movieID)
-        {
-            ConnectionPool pool = ConnectionPool.getInstance();
-            Connection connection = pool.getConnection();
-            PreparedStatement ps = null;
-            ResultSet rs = null;
+    
+    public static Movie findMovie(String movieID)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-            String query = "SELECT * FROM Movie WHERE MovieID = ?";
-            
-            try
-            {
-                ps = connection.prepareStatement(query);
-                ps.setString(1, movieID);
-                rs = ps.executeQuery();
-                Movie movie = null;
-                if (rs.next())
-                {
-                    movie = new Movie();
-                    movie.setID(rs.getString("MovieID"));
-                    movie.setName(rs.getString("MovieName"));
-                    movie.setYear(rs.getString("Year"));
-                    movie.setDescription(rs.getString("Description"));
-                }
-                return movie;
-            }
-            catch (SQLException e){
-                e.printStackTrace();
-                return null;
-            }        
-            finally
-            {
-                DBUtil.closeResultSet(rs);
-                DBUtil.closePreparedStatement(ps);
-                pool.freeConnection(connection);
-            }
+        String query = "SELECT * FROM movies WHERE MovieID = ?";
+
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, movieID);
+            rs = ps.executeQuery();
+            Movie movie = null;
+
+            rs.first();
+            movie = new Movie();
+            movie.setID(rs.getString("MovieID"));
+            movie.setName(rs.getString("MovieName"));
+            movie.setYear(rs.getString("Year"));
+            movie.setDescription(rs.getString("Description"));
+            return movie;        
         }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
 }
