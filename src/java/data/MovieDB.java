@@ -8,7 +8,7 @@ import business.*;
 import java.sql.*;
 import java.util.*;
 
-import business.MovieItem;
+//import business.MovieItem;
 /**
  *
  * @author Chappy
@@ -93,16 +93,40 @@ public class MovieDB {
             pool.freeConnection(connection);
         }   
     }
-//    
-//    public static int edit(String movieID)
-//    {
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//        
-//        String id = movieID;
-//    }            
-//    
+    
+    public static int edit(Movie movie)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        
+        String query = "UPDATE movies SET MovieName = ?, " +
+        "Year = ?, Description = ? WHERE MovieID = ?";
+
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, movie.getName());
+            ps.setString(2, movie.getYear());
+            ps.setString(3, movie.getDescription());
+            ps.setString(4, movie.getID());
+
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+
+        
+    }            
+    
   
     public static ArrayList<MovieItem> listMovies()
     {

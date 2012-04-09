@@ -11,24 +11,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    
         <script language="JavaScript">
-        function validate(form) {
-            if (form.movieName.value=="") {
-                alert("Please provide the movie's name");
-                form.movieName.focus();
+            function validate(form) {
+                if (form.movieName.value=="") {
+                    alert("Please provide the movie's name.");
+                    form.movieName.focus();
+                }
+                else if (form.year.value=="") {
+                    alert("Please enter the year of release.");
+                    form.year.focus();
+                }
+                else if (form.description.value=="") {
+                    alert("Please enter a description.");
+                    form.description.focus();
+                }
+                else {
+                    form.submit();
+                }
             }
-            else if (form.year.value=="") {
-                alert("Please enter the year of release");
-                form.year.focus();
-            }
-            else if (form.description.value=="") {
-                alert("Please enter a description");
-                form.description.focus();
-            }
-            else {
-                form.submit();
-            }
-        }
         </script>
 
         <body>

@@ -27,6 +27,8 @@
                 <td></td>
             </tr>
         </table>
+        <br><a href="editMovie.jsp" method="get">Edit this movie</a>
+
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="reviews" items="${reviews}">
         <table cellpadding ="5" border="1">

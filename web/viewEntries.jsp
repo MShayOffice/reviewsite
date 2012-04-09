@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Movies</title>
     </head>
+    
     <body>
         <h1>Click a movie for details, ratings, and reviews!</h1>
         
@@ -19,7 +20,7 @@
             <c:forEach var="movie" items="${movies}">
                 <tr>
                     <td><a href="listReviews?ID=${movie.ID}" method="get">${movie.name}</a></td>
-                    <td><a href="deleteMovie?ID=${movie.ID}">X</a></td>
+                    <td><a href="deleteMovie?ID=${movie.ID}" onClick="return confirm('Do you want to delete this movie?')">X</a></td>
                 </tr>
             </c:forEach>
         </table>
