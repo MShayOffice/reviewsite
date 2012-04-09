@@ -24,11 +24,10 @@ import javax.servlet.http.*;
         HttpSession session = request.getSession();
         String movieID = request.getParameter("ID");
         
-        Movie thisMovie = MovieDB.findMovie(movieID);
+        Movie movie = MovieDB.findMovie(movieID);
 //        ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(movieID));
-        String test = thisMovie.getName();
-        session.setAttribute("test", test);
-        session.setAttribute("thisMovie", thisMovie);
+
+        session.setAttribute("movie", movie);
 //        session.setAttribute("reviews", reviews);
                
         String url = "/viewMovieReviews.jsp";
