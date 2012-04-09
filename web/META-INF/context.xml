@@ -17,4 +17,11 @@ and had to troubleshoot, heh.
         url="jdbc:mysql://localhost:3306/murach?autoReconnect=true" 
         logAbandoned="true" removeAbandoned="true" 
         removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+        
+    <Realm className="org.apache.catalina.realm.JDBCRealm" debug="99"
+          driverName="com.mysql.jdbc.Driver"
+          connectionURL="jdbc:mysql://localhost:3306/murach?autoReconnect=true"
+          connectionName="root" connectionPassword=""
+          userTable="users" userNameCol="Username" userCredCol="Password"
+          userRoleTable="UserRole" roleNameCol="Rolename" />
 </Context>

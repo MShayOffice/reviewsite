@@ -6,6 +6,7 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
+
 public class MailUtilGmail
 {
     public static void sendMail(String to, String from,
