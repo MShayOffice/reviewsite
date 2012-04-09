@@ -15,6 +15,7 @@ import java.io.Serializable;
 public class Review implements Serializable
 {
     private String userID;
+    private String userName;
     private String movieID;
     private String reviewText;
     private String rating;
@@ -22,6 +23,7 @@ public class Review implements Serializable
     public Review()
     {
         userID = "";
+        userName = "";
         movieID = "";
         reviewText = "";
         rating = "";
@@ -71,5 +73,13 @@ public class Review implements Serializable
     public String getRating()
     { 
         return rating; 
+    }
+    public void setUserName(String u)
+    {
+        userName = u;
+    }
+    public String getUserName()
+    { 
+        return userName; 
     }
 }
