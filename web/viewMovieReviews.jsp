@@ -4,6 +4,8 @@
     Author     : Kyle
 --%>
 
+<%@page import="data.UserDB"%>
+<%@page import="business.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,7 +33,12 @@
 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="reviews" items="${reviews}">
+        
         <table cellpadding ="5" border="1">
+            <tr>
+                <td><b>User</td>
+                <td><b>${reviews.userName}</td>
+            </tr>
             <tr>
                 <td><b>Review</b></td>
                 <td>${reviews.reviewText}</td>

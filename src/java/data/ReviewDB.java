@@ -39,13 +39,13 @@ public class ReviewDB extends HttpServlet {
         ArrayList<Review> reviews=new ArrayList<Review>();
         System.out.println(movieID);
         
-        String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
-        /*String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
-                + " MovieName, Year, Description, ReviewText, Rating"
-                + "FROM Reviews"
+        //String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
+       String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
+                + " ReviewText, Rating "
+                + "FROM Reviews "
                 + "INNER JOIN Users on Reviews.UserID = Users.UserID "
-                + "JOIN Movies on Reviews.MovieID = Movies.MovieID"
-                + "WHERE Reviews.MovieID = ?";*/
+                + "JOIN Movies on Reviews.MovieID = Movies.MovieID "
+                + "WHERE Reviews.MovieID = ?";
         try
         {   
             
@@ -53,14 +53,17 @@ public class ReviewDB extends HttpServlet {
             ps.setString(1, movieID);
             rs = ps.executeQuery();
             Review review = null;
+            User user = null;
             while (rs.next())
             {
                 review = new Review();
-                review.setUserID(rs.getString("UserID"));
-                review.setMovieID(rs.getString("MovieID"));
+                review.setUserID(rs.getString("Reviews.UserID"));
+                review.setUserName(rs.getString("UserName"));
+                review.setMovieID(rs.getString("Reviews.MovieID"));
                 review.setReviewText(rs.getString("ReviewText"));
                 review.setRating(rs.getString("Rating"));
                 reviews.add(review);
+                
             }
         }
         catch (SQLException e){

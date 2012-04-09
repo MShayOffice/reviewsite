@@ -349,4 +349,39 @@ public class UserDB
         }
         return users;
     }
+    public static User selectUserByUserID(String userID)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT * FROM Users " +
+                       "WHERE UserID = ?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userID);
+            rs = ps.executeQuery();
+            User user = null;
+            if (rs.next())
+            {
+                user = new User();
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmailAddress(rs.getString("emailAddress"));
+            }
+            return user;
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
 }
