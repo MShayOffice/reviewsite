@@ -47,6 +47,10 @@
                 <td><b>Rating</b></td>
                 <td>${reviews.rating}</td>
             </tr>
+            <tr>
+                <td><b>Did you find this review helpful?</b></td>
+                <td>${reviews.score} people say YES!</td>
+            </tr>
         </table>
         <br>
     </c:forEach>

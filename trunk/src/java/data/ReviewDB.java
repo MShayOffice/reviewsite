@@ -41,7 +41,7 @@ public class ReviewDB extends HttpServlet {
         
         //String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
        String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
-                + " ReviewText, Rating "
+                + " ReviewText, Rating, Score "
                 + "FROM Reviews "
                 + "INNER JOIN Users on Reviews.UserID = Users.UserID "
                 + "JOIN Movies on Reviews.MovieID = Movies.MovieID "
@@ -62,6 +62,7 @@ public class ReviewDB extends HttpServlet {
                 review.setMovieID(rs.getString("Reviews.MovieID"));
                 review.setReviewText(rs.getString("ReviewText"));
                 review.setRating(rs.getString("Rating"));
+                review.setScore(rs.getInt("Score"));
                 reviews.add(review);
                 
             }
