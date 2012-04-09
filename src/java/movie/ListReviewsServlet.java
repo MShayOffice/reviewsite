@@ -4,7 +4,8 @@
  */
 package movie;
 
-import business.Review;
+import business.*;
+
 import data.*;
 import java.io.*;
 import java.util.*;
@@ -20,13 +21,16 @@ import javax.servlet.http.*;
             HttpServletResponse response)
             throws ServletException, IOException
     {
-        
         HttpSession session = request.getSession();
-        String MovieID = request.getParameter("ID");
-        ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(MovieID));
+        String movieID = request.getParameter("ID");
         
-        session.setAttribute("reviews", reviews);
-        
+        Movie thisMovie = MovieDB.findMovie(movieID);
+//        ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(movieID));
+        String test = thisMovie.getName();
+        session.setAttribute("test", test);
+        session.setAttribute("thisMovie", thisMovie);
+//        session.setAttribute("reviews", reviews);
+               
         String url = "/viewMovieReviews.jsp";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);

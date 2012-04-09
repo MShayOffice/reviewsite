@@ -28,7 +28,7 @@ public class ReviewDB extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-  public static ArrayList<Review> selectReview(String movie)
+  public static ArrayList<Review> selectReview(String movieID)
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
@@ -38,15 +38,16 @@ public class ReviewDB extends HttpServlet {
         ArrayList<Review> reviews=new ArrayList<Review>();
         
         String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
-                + " MovieName, Year, Description, ReviewText, Rating FROM "
-                + "Reviews INNER JOIN Users on Reviews.UserID = Users.UserID "
-                + " JOIN Movies on Reviews.MovieID = Movies.MovieID;" +
-                       "WHERE MovieName = ?";
+                + " MovieName, Year, Description, ReviewText, Rating"
+                + "FROM Reviews"
+                + "INNER JOIN Users on Reviews.UserID = Users.UserID "
+                + "JOIN Movies on Reviews.MovieID = Movies.MovieID;"
+                + "WHERE MovieID = ?";
         
         try
         {   
             ps = connection.prepareStatement(query);
-            ps.setString(1, movie);
+            ps.setString(1, movieID);
             rs = ps.executeQuery();
             Review review = null;
             

@@ -15,7 +15,8 @@
     <servlet>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
         <servlet-class>user.ComfirmNewUserServlet</servlet-class>
-    </servlet>    <servlet>
+    </servlet>   
+    <servlet>
         <servlet-name>ReviewDB</servlet-name>
         <servlet-class>data.ReviewDB</servlet-class>
     </servlet>
@@ -54,11 +55,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListReviewsServlet</servlet-name>
-        <url-pattern>/ListReviews</url-pattern>
+        <url-pattern>/listReviews</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteMovieServlet</servlet-name>
-        <url-pattern>DeleteMovie</url-pattern>
+        <url-pattern>/deleteMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Review</servlet-name>
