@@ -29,7 +29,17 @@
         </table>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="reviews" items="${reviews}">
-        ${reviews.ReviewText}<br>
+        <table cellpadding ="5" border="1">
+            <tr>
+                <td><b>Review</b></td>
+                <td>${reviews.reviewText}</td>
+            </tr>
+            <tr>
+                <td><b>Rating</b></td>
+                <td>${reviews.rating}</td>
+            </tr>
+        </table>
+        <br>
     </c:forEach>
         <br>
         <form action="viewEntries.jsp" method="post">
