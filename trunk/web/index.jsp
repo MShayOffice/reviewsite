@@ -16,7 +16,8 @@
         <p>Please select an option: </p>
         <a href="registerUser.jsp" method="get">Register Users</a><br>
         <a href="login.jsp" method="get">Login</a><br>
-        <a href="listMovies" method="get">View Movies and Reviews</a>
+        <a href="listMovies" method="get">View Movies and Reviews</a><br>
+        <a href="Secure\login.html" method="get">Secure Login</a>
     </body>
 </html>
 

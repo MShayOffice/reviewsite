@@ -238,6 +238,42 @@ public class UserDB
         }
     }
     
+        public static User selectUserByUsername(String username)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT * FROM Users " +
+                       "WHERE Username = ?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            User user = null;
+            if (rs.next())
+            {
+                user = new User();
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmailAddress(rs.getString("emailAddress"));
+            }
+            return user;
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
     public static User selectUser(String emailAddress)
     {
         ConnectionPool pool = ConnectionPool.getInstance();

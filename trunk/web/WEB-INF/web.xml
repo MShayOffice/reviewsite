@@ -15,7 +15,7 @@
     <servlet>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
         <servlet-class>user.ComfirmNewUserServlet</servlet-class>
-    </servlet>   
+    </servlet>
     <servlet>
         <servlet-name>ReviewDB</servlet-name>
         <servlet-class>data.ReviewDB</servlet-class>
@@ -32,8 +32,12 @@
         <servlet-name>Review</servlet-name>
         <servlet-class>business.Review</servlet-class>
     </servlet>
-<!--  This space is here to split the classes and URL patterns
-      because regular spaces like to go away in this file-->    
+    <!--  This space is here to split the classes and URL patterns
+      because regular spaces like to go away in this file-->
+    <servlet>
+        <servlet-name>AuthenticateUserServlet</servlet-name>
+        <servlet-class>user.AuthenticateUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
@@ -49,7 +53,8 @@
     <servlet-mapping>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
         <url-pattern>/ComfirmNewUser</url-pattern>
-    </servlet-mapping>    <servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ReviewDB</servlet-name>
         <url-pattern>/ReviewDB</url-pattern>
     </servlet-mapping>
@@ -65,8 +70,12 @@
         <servlet-name>Review</servlet-name>
         <url-pattern>/Review</url-pattern>
     </servlet-mapping>
-<!--  This space is here to signify the end of the servlet mapping
-      because regular spaces like to go away in this file-->    
+    <!--  This space is here to signify the end of the servlet mapping
+      because regular spaces like to go away in this file-->
+    <servlet-mapping>
+        <servlet-name>AuthenticateUserServlet</servlet-name>
+        <url-pattern>/Secure/AuthenticateUser</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -75,4 +84,12 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <!-- Use form-based authentication -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/Secure/login.jsp</form-login-page>
+            <form-error-page>/Secure/login_error.html</form-error-page>
+        </form-login-config>
+    </login-config>
 </web-app>

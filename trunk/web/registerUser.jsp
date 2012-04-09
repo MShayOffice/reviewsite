@@ -31,11 +31,11 @@
     </tr>
     <tr>
         <td align="right">Password:</td>
-        <td><input type="text" name="password"></td>
+        <td><input type="password" name="password"></td>
     </tr>
     <tr>
         <td align="right">Confirm Password:</td>
-        <td><input type="text" name="confirmPassword"></td>
+        <td><input type="password" name="confirmPassword"></td>
     </tr>
     <tr>
       <td></td>
