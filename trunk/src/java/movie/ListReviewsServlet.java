@@ -5,13 +5,11 @@
 package movie;
 
 import business.*;
-
 import data.*;
 import java.io.*;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-
 /**
  *
  * @author Kyle
@@ -27,10 +25,13 @@ import javax.servlet.http.*;
         String movieID = request.getParameter("ID");
         
         Movie movie = MovieDB.findMovie(movieID);
-//        ArrayList<Review> reviews = new ArrayList<Review>(ReviewDB.selectReview(movieID));
-
+        
+        ArrayList<Review> reviews = new ArrayList<Review>();
+        
+        reviews = ReviewDB.selectReview(movieID);
+        
         session.setAttribute("movie", movie);
-//        session.setAttribute("reviews", reviews);
+        session.setAttribute("reviews", reviews);
                
         String url = "/viewMovieReviews.jsp";
         RequestDispatcher dispatcher =

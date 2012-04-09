@@ -41,8 +41,8 @@ public class ReviewDB extends HttpServlet {
                 + " MovieName, Year, Description, ReviewText, Rating"
                 + "FROM Reviews"
                 + "INNER JOIN Users on Reviews.UserID = Users.UserID "
-                + "JOIN Movies on Reviews.MovieID = Movies.MovieID;"
-                + "WHERE MovieID = ?";
+                + "JOIN Movies on Reviews.MovieID = Movies.MovieID"
+                + "WHERE Reviews.MovieID = ?";
         
         try
         {   
