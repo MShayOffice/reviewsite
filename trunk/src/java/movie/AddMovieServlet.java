@@ -26,11 +26,8 @@ public class AddMovieServlet extends HttpServlet {
         movie.setName(movieName);
         movie.setYear(year);
         movie.setDescription(description);
-//        int id = MovieDB.getID();
         MovieDB.add(movie);
         
-//        int idTest = MovieDB.getID();
-//        session.setAttribute("idTest", idTest);
         String url = "/listMovies";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
