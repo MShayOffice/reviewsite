@@ -17,11 +17,11 @@ public class DeleteMovieServlet extends HttpServlet
             HttpServletResponse response) 
             throws ServletException, IOException
     {
-        String movieID = request.getParameter("movieID");
+        String movieID = request.getParameter("ID");
         
         MovieDB.delete(movieID);
         
-        String url = "/ListMovies";
+        String url = "/listMovies";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);

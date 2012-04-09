@@ -93,7 +93,16 @@ public class MovieDB {
             pool.freeConnection(connection);
         }   
     }
-    
+//    
+//    public static int edit(String movieID)
+//    {
+//        ConnectionPool pool = ConnectionPool.getInstance();
+//        Connection connection = pool.getConnection();
+//        PreparedStatement ps = null;
+//        
+//        String id = movieID;
+//    }            
+//    
     public static int getID()
     {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -158,7 +167,43 @@ public class MovieDB {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }
-        
         return movies;
+        
     }
+        public static Movie findMovie(String movieID)
+        {
+            ConnectionPool pool = ConnectionPool.getInstance();
+            Connection connection = pool.getConnection();
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+
+            String query = "SELECT * FROM Movie WHERE MovieID = ?";
+            
+            try
+            {
+                ps = connection.prepareStatement(query);
+                ps.setString(1, movieID);
+                rs = ps.executeQuery();
+                Movie movie = null;
+                if (rs.next())
+                {
+                    movie = new Movie();
+                    movie.setID(rs.getString("MovieID"));
+                    movie.setName(rs.getString("MovieName"));
+                    movie.setYear(rs.getString("Year"));
+                    movie.setDescription(rs.getString("Description"));
+                }
+                return movie;
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+                return null;
+            }        
+            finally
+            {
+                DBUtil.closeResultSet(rs);
+                DBUtil.closePreparedStatement(ps);
+                pool.freeConnection(connection);
+            }
+        }
 }

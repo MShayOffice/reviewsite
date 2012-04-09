@@ -9,13 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>${movieID}</title>
     </head>
     <body>
-        <h1></h1>
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <h1>${test}</h1>
+        <h2>${movie.name}</h2>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="reviews" items="${reviews}">
         ${review.ReviewText}<br>
     </c:forEach>
+        test
     </body>
 </html>
