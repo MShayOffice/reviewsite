@@ -4,6 +4,7 @@
  */
 package data;
 
+
 import business.*;
 import java.io.*;
 import java.sql.*;
@@ -36,21 +37,22 @@ public class ReviewDB extends HttpServlet {
         ResultSet rs = null;
         
         ArrayList<Review> reviews=new ArrayList<Review>();
+        System.out.println(movieID);
         
-        String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
+        String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
+        /*String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
                 + " MovieName, Year, Description, ReviewText, Rating"
                 + "FROM Reviews"
                 + "INNER JOIN Users on Reviews.UserID = Users.UserID "
                 + "JOIN Movies on Reviews.MovieID = Movies.MovieID"
-                + "WHERE Reviews.MovieID = ?";
-        
+                + "WHERE Reviews.MovieID = ?";*/
         try
         {   
+            
             ps = connection.prepareStatement(query);
             ps.setString(1, movieID);
             rs = ps.executeQuery();
             Review review = null;
-            
             while (rs.next())
             {
                 review = new Review();
