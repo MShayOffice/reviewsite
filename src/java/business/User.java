@@ -37,15 +37,17 @@ public class User implements Serializable
         return userID;
     }
     
-    public void setUserName(String u)
+    
+    public void setUserName(String k)
     {
-        username = u;
+        username = k;
     }
     public String getUserName()
-    { 
-        return username; 
+    {
+        return username;
     }
     
+   
     public void setPassword(String p)
     {
         password = p;

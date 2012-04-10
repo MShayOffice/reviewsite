@@ -158,7 +158,7 @@ public class UserDB
         PreparedStatement ps = null;
 
         String query = 
-                "INSERT INTO Users (UserName, Password, Email) " +
+                "INSERT INTO Users (UserName, Password, EmailAddress) " +
                 "VALUES (?, ?, ?)";
         try
         {        
@@ -189,7 +189,7 @@ public class UserDB
         String query = "UPDATE Users SET " +
                 "UserName = ?, " +
                 "Password = ? " +
-                "WHERE Email = ?";
+                "WHERE EmailAddress = ?";
         try
         {
             ps = connection.prepareStatement(query);
@@ -247,8 +247,8 @@ public class UserDB
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT Email FROM Users " +
-                "WHERE Email = ?";
+        String query = "SELECT EmailAddress FROM Users " +
+                "WHERE EmailAddress = ?";
         try
         {
             ps = connection.prepareStatement(query);
@@ -313,7 +313,7 @@ public class UserDB
         ResultSet rs = null;
         
         String query = "SELECT * FROM Users " +
-                       "WHERE Email = ?";
+                       "WHERE EmailAddress = ?";
         try
         {
             ps = connection.prepareStatement(query);
