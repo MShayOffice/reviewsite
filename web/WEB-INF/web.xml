@@ -120,6 +120,7 @@ User Servlet Mapping
     <servlet-mapping>
         <servlet-name>ListUserReviewServlet</servlet-name>
         <url-pattern>/listUserReview</url-pattern>
+        <url-pattern>/Secure/listUserReview</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteReviewServlet</servlet-name>

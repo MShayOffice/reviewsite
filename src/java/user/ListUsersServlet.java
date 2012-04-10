@@ -26,7 +26,7 @@ public class ListUsersServlet extends HttpServlet
         
         session.setAttribute("users", users);
         
-        String url = "/viewUsers.jsp";
+        String url = "/Secure/viewUsers.jsp";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);                
