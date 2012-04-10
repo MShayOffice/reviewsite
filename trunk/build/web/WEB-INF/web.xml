@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-<!--
+    <!--
 Movie Servlet Classes
 -->
     <servlet>
@@ -23,7 +23,7 @@ Movie Servlet Classes
         <servlet-name>ListReviewsServlet</servlet-name>
         <servlet-class>movie.ListReviewsServlet</servlet-class>
     </servlet>
-<!--
+    <!--
 User Servlet Classes
 -->
     <servlet>
@@ -46,9 +46,17 @@ User Servlet Classes
         <servlet-name>ListUsersServlet</servlet-name>
         <servlet-class>user.ListUsersServlet</servlet-class>
     </servlet>
-<!--
+    <!--
 Movie Servlet Mapping
 -->
+    <servlet>
+        <servlet-name>ListUserReviewServlet</servlet-name>
+        <servlet-class>user.ListUserReviewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteReviewServlet</servlet-name>
+        <servlet-class>user.DeleteReviewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
@@ -74,7 +82,7 @@ Movie Servlet Mapping
         <url-pattern>/listReviews</url-pattern>
         <url-pattern>/Secure/listReviews</url-pattern>
     </servlet-mapping>
-<!--    
+    <!--    
 User Servlet Mapping
 -->
     <servlet-mapping>
@@ -101,9 +109,17 @@ User Servlet Mapping
         <url-pattern>/listUsers</url-pattern>
         <url-pattern>/Secure/listUsers</url-pattern>
     </servlet-mapping>
-<!--
+    <servlet-mapping>
+        <servlet-name>ListUserReviewServlet</servlet-name>
+        <url-pattern>/listUserReview</url-pattern>
+    </servlet-mapping>
+    <!--
 Config stuff    
 -->
+    <servlet-mapping>
+        <servlet-name>DeleteReviewServlet</servlet-name>
+        <url-pattern>/deleteReview</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -112,9 +128,9 @@ Config stuff
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-<!--
+    <!--
 Define two security roles 
--->    
+-->
     <security-role>
         <description>Review Recreator</description>
         <role-name>ReviewCreator</role-name>
@@ -123,7 +139,7 @@ Define two security roles
         <description>Site Administrator</description>
         <role-name>SiteAdmin</role-name>
     </security-role>
-<!--
+    <!--
 Restrict access to all files in the /admin folder
 -->
     <security-constraint>
@@ -131,7 +147,7 @@ Restrict access to all files in the /admin folder
             <web-resource-name>Protected Area</web-resource-name>
             <url-pattern>/Secure/*</url-pattern>
         </web-resource-collection>
-<!--
+        <!--
 Authorize the programmer and service roles
 -->
         <auth-constraint>
@@ -139,7 +155,7 @@ Authorize the programmer and service roles
             <role-name>SiteAdmin</role-name>
         </auth-constraint>
     </security-constraint>
-<!--
+    <!--
 Use form-based authentication
 -->
     <login-config>

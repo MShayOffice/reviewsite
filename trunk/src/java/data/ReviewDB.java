@@ -40,7 +40,7 @@ public class ReviewDB extends HttpServlet {
         System.out.println(movieID);
         
         //String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
-       String query = "SELECT Reviews.UserID, UserName, Reviews.MovieID,"
+       String query = "SELECT ReviewID, Reviews.UserID, UserName, Reviews.MovieID,"
                 + " ReviewText, Rating, Score "
                 + "FROM Reviews "
                 + "INNER JOIN Users on Reviews.UserID = Users.UserID "
@@ -56,6 +56,7 @@ public class ReviewDB extends HttpServlet {
             while (rs.next())
             {
                 review = new Review();
+                review.setReviewID(rs.getString("ReviewID"));
                 review.setUserID(rs.getString("Reviews.UserID"));
                 review.setUserName(rs.getString("UserName"));
                 review.setMovieID(rs.getString("Reviews.MovieID"));
@@ -79,4 +80,88 @@ public class ReviewDB extends HttpServlet {
         
         return reviews;
     }
+  
+  
+  
+  public static ArrayList<Review> selectReviewByUser(String userID)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        ArrayList<Review> reviews=new ArrayList<Review>();
+        System.out.println(userID);
+        
+        //String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
+       String query = "SELECT ReviewID, Reviews.UserID, MovieName, Reviews.MovieID,"
+                + " ReviewText, Rating, Score "
+                + "FROM Reviews "
+                + "INNER JOIN Movies on Reviews.MovieID = Movies.MovieID "
+                + "JOIN Users on Reviews.UserID = Users.UserID " 
+                + "WHERE Reviews.UserID = ?";
+        try
+        {   
+            
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userID);
+            rs = ps.executeQuery();
+            Review review = null;
+            while (rs.next())
+            {
+                review = new Review();
+                review.setReviewID(rs.getString("ReviewID"));
+                review.setUserID(rs.getString("Reviews.UserID"));
+                review.setMovieName(rs.getString("MovieName"));
+                review.setMovieID(rs.getString("Reviews.MovieID"));
+                review.setReviewText(rs.getString("ReviewText"));
+                review.setRating(rs.getString("Rating"));
+                review.setScore(rs.getInt("Score"));
+                reviews.add(review);
+                
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        
+        return reviews;
+    }
+  
+      public static int delete(String reviewID)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        
+        String id = reviewID;
+        
+        String query = "DELETE FROM Reviews WHERE ReviewID = ?";
+        
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, id);
+
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+  
 }
