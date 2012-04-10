@@ -18,7 +18,6 @@
         <!--<a href="login.jsp" method="get">Login</a><br>-->
         <!--<a href="addReview.jsp" method="get">Add a review</a><br>-->
         <a href="listMovies" method="get">View Movies and Reviews</a><br>
-        <a href="listUsers" method="get">Manage Users</a><br>
         <a href="Secure/index.jsp" method="get">Secure Login</a><br>
         
     </body>
