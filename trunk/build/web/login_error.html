@@ -9,6 +9,11 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <div>There is an error in your login</div>
+        <% Session.invalidate(); %>
+        <div>
+            Incorrect Login Name or Password.<BR> Please click 
+            <a href="login.html">here</a>
+            to try again
+        </div>
     </body>
 </html>

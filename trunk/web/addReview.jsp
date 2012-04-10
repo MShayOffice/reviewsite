@@ -48,10 +48,7 @@
                 </tr>
                 
                 <tr>
-                    <td align="right">MovieID:</td>
-                    <td><input type="text" name="movieID" 
-                            value=<%=ID%>>
-                    </td>
+                    <input type="hidden" name="movieID" value=<%=ID%> readonly="readonly"/>
                 </tr>
                 <tr>
                     <td align="right" valign="top">Review Text:</td>

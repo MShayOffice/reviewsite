@@ -11,11 +11,13 @@ public class MovieItem implements Serializable
     
     private String movieID;
     private String movieName;
+    private double average;
     
     public MovieItem()
     {
         movieID = "";
         movieName = "";
+        average = 0;
     }
     
     public MovieItem(String id, String name)
@@ -42,5 +44,13 @@ public class MovieItem implements Serializable
     public String getName()
     {
         return movieName;
+    }
+    public void setAverage(double a)
+    {
+        average = a;
+    }
+    public double getAverage()
+    { 
+        return average; 
     }
 }
