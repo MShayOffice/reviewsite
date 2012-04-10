@@ -31,6 +31,10 @@ User Servlet Classes
         <servlet-class>user.AddUserServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ConfirmNewUserServlet</servlet-name>
+        <servlet-class>user.ConfirmNewUserServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DeleteUserServlet</servlet-name>
         <servlet-class>user.DeleteUserServlet</servlet-class>
     </servlet>
@@ -77,6 +81,10 @@ User Servlet Mapping
         <servlet-name>AddUserServlet</servlet-name>
         <url-pattern>/addUser</url-pattern>
         <url-pattern>/Secure/addUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmNewUserServlet</servlet-name>
+        <url-pattern>/confirmUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteUserServlet</servlet-name>

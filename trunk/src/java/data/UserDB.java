@@ -361,7 +361,7 @@ public class UserDB
             while (rs.next())
             {
                 user = new User();
-                user.setUserID(rs.getString("UserID"));
+                user.setUserID(rs.getString("userID"));
                 user.setUserName(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setEmailAddress(rs.getString("emailAddress"));
