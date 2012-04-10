@@ -81,6 +81,22 @@
         <url-pattern>/editMovie</url-pattern>
         <url-pattern>/Secure/editMovie</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/addUser</url-pattern>
+    </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>EditUserServlet</servlet-name>
+        <url-pattern>/editUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListUsersServlet</servlet-name>
+        <url-pattern>/listUsers</url-pattern>
+    </servlet-mapping>
 <!--  This space is here to signify the end of the servlet mapping
       because regular spaces like to go away in this file-->    
     <session-config>
