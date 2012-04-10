@@ -1,83 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<!--
+Movie Servlet Classes
+-->
     <servlet>
         <servlet-name>AddMovieServlet</servlet-name>
         <servlet-class>movie.AddMovieServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddUserServlet</servlet-name>
-        <servlet-class>user.AddUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListMoviesServlet</servlet-name>
-        <servlet-class>movie.ListMoviesServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ComfirmNewUserServlet</servlet-name>
-        <servlet-class>user.ComfirmNewUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReviewDB</servlet-name>
-        <servlet-class>data.ReviewDB</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListReviewsServlet</servlet-name>
-        <servlet-class>movie.ListReviewsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteMovieServlet</servlet-name>
         <servlet-class>movie.DeleteMovieServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Review</servlet-name>
-        <servlet-class>business.Review</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>EditMovieServlet</servlet-name>
         <servlet-class>movie.EditMovieServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListUsersServlet</servlet-name>
-        <servlet-class>user.ListUsersServlet</servlet-class>
+        <servlet-name>ListMoviesServlet</servlet-name>
+        <servlet-class>movie.ListMoviesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListReviewsServlet</servlet-name>
+        <servlet-class>movie.ListReviewsServlet</servlet-class>
+    </servlet>
+<!--
+User Servlet Classes
+-->
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>user.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>user.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditUserServlet</servlet-name>
         <servlet-class>user.EditUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteUserServlet</servlet-name>
-        <servlet-class>user.DeleteUserServlet</servlet-class>
+        <servlet-name>ListUsersServlet</servlet-name>
+        <servlet-class>user.ListUsersServlet</servlet-class>
     </servlet>
-    <!--  This space is here to split the classes and URL patterns
-      because regular spaces like to go away in this file-->
+<!--
+Movie Servlet Mapping
+-->
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
         <url-pattern>/Secure/addMovie</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddUserServlet</servlet-name>
-        <url-pattern>/addUser</url-pattern>
-        <url-pattern>/Secure/addUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListMoviesServlet</servlet-name>
-        <url-pattern>/listMovies</url-pattern>
-        <url-pattern>/Secure/listMovies</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ComfirmNewUserServlet</servlet-name>
-        <url-pattern>/ComfirmNewUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReviewDB</servlet-name>
-        <url-pattern>/ReviewDB</url-pattern>
-        <url-pattern>/Secure/ReviewDB</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListReviewsServlet</servlet-name>
-        <url-pattern>/listReviews</url-pattern>
-        <url-pattern>/Secure/listReviews</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteMovieServlet</servlet-name>
@@ -85,19 +56,27 @@
         <url-pattern>/Secure/deleteMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Review</servlet-name>
-        <url-pattern>/Review</url-pattern>
-        <url-pattern>/Secure/Review</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>EditMovieServlet</servlet-name>
         <url-pattern>/editMovie</url-pattern>
         <url-pattern>/Secure/editMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditUserServlet</servlet-name>
-        <url-pattern>/editUser</url-pattern>
-        <url-pattern>/Secure/editUser</url-pattern>
+        <servlet-name>ListMoviesServlet</servlet-name>
+        <url-pattern>/listMovies</url-pattern>
+        <url-pattern>/Secure/listMovies</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListReviewsServlet</servlet-name>
+        <url-pattern>/listReviews</url-pattern>
+        <url-pattern>/Secure/listReviews</url-pattern>
+    </servlet-mapping>
+<!--    
+User Servlet Mapping
+-->
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/addUser</url-pattern>
+        <url-pattern>/Secure/addUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteUserServlet</servlet-name>
@@ -105,12 +84,18 @@
         <url-pattern>/Secure/deleteUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>EditUserServlet</servlet-name>
+        <url-pattern>/editUser</url-pattern>
+        <url-pattern>/Secure/editUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListUsersServlet</servlet-name>
         <url-pattern>/listUsers</url-pattern>
         <url-pattern>/Secure/listUsers</url-pattern>
     </servlet-mapping>
-    <!--  This space is here to signify the end of the servlet mapping
-      because regular spaces like to go away in this file-->
+<!--
+Config stuff    
+-->
     <session-config>
         <session-timeout>
             30
@@ -119,7 +104,9 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    <!-- Define two security roles -->
+<!--
+Define two security roles 
+-->    
     <security-role>
         <description>Review Recreator</description>
         <role-name>ReviewCreator</role-name>
@@ -128,19 +115,25 @@
         <description>Site Administrator</description>
         <role-name>SiteAdmin</role-name>
     </security-role>
-    <!-- Restrict access to all files in the /admin folder -->
+<!--
+Restrict access to all files in the /admin folder
+-->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Protected Area</web-resource-name>
             <url-pattern>/Secure/*</url-pattern>
         </web-resource-collection>
-        <!-- Authorize the programmer and service roles -->
+<!--
+Authorize the programmer and service roles
+-->
         <auth-constraint>
             <role-name>ReviewCreator</role-name>
             <role-name>SiteAdmin</role-name>
         </auth-constraint>
     </security-constraint>
-    <!-- Use form-based authentication -->
+<!--
+Use form-based authentication
+-->
     <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
