@@ -28,6 +28,58 @@ public class ReviewDB extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    public static int add(Review review)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT MAX(ReviewID) FROM Reviews";
+
+        try
+        {
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            rs.first();
+            int id = (rs.getInt(1)+1);
+
+            query = "INSERT INTO Reviews (ReviewID, UserID, MovieID, ReviewText, Rating)"
+                + "VALUES (?, ?, ?, ?, ?)";
+
+            try
+            {
+                ps = connection.prepareStatement(query);
+                ps.setInt(1, id);
+                ps.setString(2, review.getUserID());
+                ps.setString(3, review.getMovieID());
+                ps.setString(4, review.getReviewText());
+                ps.setString(5, review.getRating());
+                return ps.executeUpdate();
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+                return 0;
+            }
+            finally
+            {
+                DBUtil.closePreparedStatement(ps);
+                pool.freeConnection(connection);
+            }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }        
+    }
+    
     
   public static ArrayList<Review> selectReview(String movieID)
     {

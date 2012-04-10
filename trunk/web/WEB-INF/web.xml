@@ -46,10 +46,7 @@ User Servlet Classes
         <servlet-name>ListUsersServlet</servlet-name>
         <servlet-class>user.ListUsersServlet</servlet-class>
     </servlet>
-    <!--
-Movie Servlet Mapping
--->
-    <servlet>
+        <servlet>
         <servlet-name>ListUserReviewServlet</servlet-name>
         <servlet-class>user.ListUserReviewServlet</servlet-class>
     </servlet>
@@ -57,6 +54,14 @@ Movie Servlet Mapping
         <servlet-name>DeleteReviewServlet</servlet-name>
         <servlet-class>user.DeleteReviewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddReviewServlet</servlet-name>
+        <servlet-class>movie.AddReviewServlet</servlet-class>
+    </servlet>
+    <!--
+Movie Servlet Mapping
+-->
+
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
@@ -113,13 +118,18 @@ User Servlet Mapping
         <servlet-name>ListUserReviewServlet</servlet-name>
         <url-pattern>/listUserReview</url-pattern>
     </servlet-mapping>
-    <!--
-Config stuff    
--->
     <servlet-mapping>
         <servlet-name>DeleteReviewServlet</servlet-name>
         <url-pattern>/deleteReview</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddReviewServlet</servlet-name>
+        <url-pattern>/addReview</url-pattern>
+    </servlet-mapping>
+    <!--
+Config stuff    
+-->
+
     <session-config>
         <session-timeout>
             30
