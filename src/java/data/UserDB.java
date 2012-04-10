@@ -1,7 +1,7 @@
 package data;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -351,20 +351,21 @@ public class UserDB
         
         ArrayList<User> users=new ArrayList<User>();
         
-        String query = "SELECT * FROM Users";
+        String query = "SELECT * FROM Users ORDER BY Username ASC";
 
         try
         {
             ps = connection.prepareStatement(query);
-             rs = ps.executeQuery();
+            rs = ps.executeQuery();
             User user = null;
+            
             while (rs.next())
             {
                 user = new User();
                 user.setUserID(rs.getString("userID"));
-                user.setUserName(rs.getString("username"));
-                user.setPassword(rs.getString("password"));
-                user.setEmailAddress(rs.getString("emailAddress"));
+                user.setUserName(rs.getString("Username"));
+                user.setEmailAddress(rs.getString("EmailAddress"));
+                user.setPassword(rs.getString("Password"));
                 users.add(user);
             }
         }

@@ -22,8 +22,7 @@ public class ListUsersServlet extends HttpServlet
             throws ServletException, IOException
     {
         HttpSession session = request.getSession();
-        ArrayList<User> users = new ArrayList<User>();
-        users = UserDB.selectUsers();
+        ArrayList<User> users = new ArrayList<User>(UserDB.selectUsers());
         
         session.setAttribute("users", users);
         
