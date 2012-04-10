@@ -32,7 +32,10 @@ public class EditMovieServlet extends HttpServlet
         MovieDB.edit(movie);
         
         
-        String url="/listReviews?ID="+movie.getID()+"&s=secure";
+        //String url="/listReviews?ID="+movie.getID()+"&s=secure";
+        String url="/listMovies?s=secure";
+        
+        
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);

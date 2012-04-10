@@ -121,14 +121,19 @@ User Servlet Mapping
         <servlet-name>ListUserReviewServlet</servlet-name>
         <url-pattern>/listUserReview</url-pattern>
         <url-pattern>/Secure/listUserReview</url-pattern>
+        
+        
+        
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteReviewServlet</servlet-name>
         <url-pattern>/deleteReview</url-pattern>
+        <url-pattern>/Secure/deleteReview</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddReviewServlet</servlet-name>
         <url-pattern>/addReview</url-pattern>
+        <url-pattern>/Secure/addReview</url-pattern>
     </servlet-mapping>
     <!--
 Config stuff    

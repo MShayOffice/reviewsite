@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Main Page</title>
+        <title>User Control Panel</title>
     </head>
     <body>
-        <h1>Main Page</h1>
-        <p>Please select an option: </p>
-        <a href="listMovies?s=secure" method="get">View Movies and Reviews</a><br>
+        <h1>User Control Panel</h1>
+        <p>Choose: </p>
+        <a href="listMovies?s=secure" method="get">Manage Movies and Reviews</a><br>
         <a href="listUsers" method="get">Manage Users</a><br>
     </body>
 </html>

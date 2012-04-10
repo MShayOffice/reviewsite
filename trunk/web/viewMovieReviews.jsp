@@ -31,6 +31,10 @@
                     <%= request.getParameter("average") %>
                 </td>
             </tr>
+            <tr>
+                <td><b>Add Review</td>
+                <td><a href="addReview.jsp?ID=${movie.ID}" method="get">Write Review</a></td>
+            </tr>
         </table>
         <!--<br><a href="editMovie.jsp" method="get">Edit this movie</a>-->
 
