@@ -29,7 +29,7 @@ public class AddUserServlet extends HttpServlet {
         String body = "Dear " + username + ",\n\n" +
             "Thanks for joining our Review Movie Site. " + "\n\n" +
                 "Please visit the following link to finish the registration process\n\n" +
-                "http://localhost:8080/ReviewSite/ComfirmNewUser?urlcode=" +
+                "http://localhost:8080/ReviewSite/confirmUser?urlcode=" +
                 urlcode +
                 "\n" +
                 "Have a great day and thanks again!\n\n" +
