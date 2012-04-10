@@ -4,8 +4,7 @@
     Author     : Kyle
 --%>
 
-<%@page import="data.UserDB"%>
-<%@page import="business.User"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
