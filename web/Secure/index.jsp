@@ -14,10 +14,7 @@
     <body>
         <h1>Main Page</h1>
         <p>Please select an option: </p>
-        <a href="registerUser.jsp" method="get">Register Users</a><br>
-        <!--<a href="login.jsp" method="get">Login</a><br>-->
         <a href="listMovies" method="get">View Movies and Reviews</a><br>
-        <a href="Secure\index.jsp" method="get">Secure Login</a>
     </body>
 </html>
 
