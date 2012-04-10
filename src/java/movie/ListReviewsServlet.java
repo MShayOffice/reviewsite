@@ -33,7 +33,18 @@ import javax.servlet.http.*;
         session.setAttribute("movie", movie);
         session.setAttribute("reviews", reviews);
                
-        String url = "/viewMovieReviews.jsp";
+        
+        String url;
+        String strSecure = request.getParameter("s");
+        
+        if(strSecure == null)       
+            url = "/viewMovieReviews.jsp";
+        else if(strSecure.equals("secure"))
+            url = "/Secure/viewMovieReviews.jsp";
+        else 
+            url = "/viewMovieReviews.jsp";
+        
+        
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);         

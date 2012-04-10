@@ -60,7 +60,7 @@
                 </tr>
             </table>
         </form>
-            <form action="listReviews?ID=${movie.ID}" method="post">
+            <form action="listReviews?ID=${movie.ID}&s=secure" method="post">
             <input type="submit" value="Cancel" onClick="return confirm('Leave this page without saving changes?')">
         </form>
     </body>
