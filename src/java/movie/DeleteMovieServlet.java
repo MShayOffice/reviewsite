@@ -21,7 +21,7 @@ public class DeleteMovieServlet extends HttpServlet
         
         MovieDB.delete(movieID);
         
-        String url = "/listMovies";
+        String url = "/listMovies?s=secure";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
