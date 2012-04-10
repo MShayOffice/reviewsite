@@ -15,7 +15,7 @@
     <servlet>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
         <servlet-class>user.ComfirmNewUserServlet</servlet-class>
-    </servlet>   
+    </servlet>
     <servlet>
         <servlet-name>ReviewDB</servlet-name>
         <servlet-class>data.ReviewDB</servlet-class>
@@ -37,19 +37,19 @@
         <servlet-class>movie.EditMovieServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteUserServlet</servlet-name>
-        <servlet-class>user.DeleteUserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListUserServlet</servlet-name>
-        <servlet-class>user.ListUserServlet</servlet-class>
+        <servlet-name>ListUsersServlet</servlet-name>
+        <servlet-class>user.ListUsersServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditUserServlet</servlet-name>
         <servlet-class>user.EditUserServlet</servlet-class>
     </servlet>
-<!--  This space is here to split the classes and URL patterns
-      because regular spaces like to go away in this file-->    
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>user.DeleteUserServlet</servlet-class>
+    </servlet>
+    <!--  This space is here to split the classes and URL patterns
+      because regular spaces like to go away in this file-->
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
@@ -68,7 +68,8 @@
     <servlet-mapping>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
         <url-pattern>/ComfirmNewUser</url-pattern>
-    </servlet-mapping>    <servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ReviewDB</servlet-name>
         <url-pattern>/ReviewDB</url-pattern>
         <url-pattern>/Secure/ReviewDB</url-pattern>
@@ -94,23 +95,22 @@
         <url-pattern>/Secure/editMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddUserServlet</servlet-name>
-        <url-pattern>/addUser</url-pattern>
-    </servlet-mapping> 
-    <servlet-mapping>
         <servlet-name>EditUserServlet</servlet-name>
         <url-pattern>/editUser</url-pattern>
+        <url-pattern>/Secure/editUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteUserServlet</servlet-name>
         <url-pattern>/deleteUser</url-pattern>
+        <url-pattern>/Secure/deleteUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListUsersServlet</servlet-name>
         <url-pattern>/listUsers</url-pattern>
+        <url-pattern>/Secure/listUsers</url-pattern>
     </servlet-mapping>
-<!--  This space is here to signify the end of the servlet mapping
-      because regular spaces like to go away in this file-->    
+    <!--  This space is here to signify the end of the servlet mapping
+      because regular spaces like to go away in this file-->
     <session-config>
         <session-timeout>
             30
@@ -119,8 +119,7 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
-<!-- Define two security roles -->
+    <!-- Define two security roles -->
     <security-role>
         <description>Review Recreator</description>
         <role-name>ReviewCreator</role-name>
@@ -129,7 +128,6 @@
         <description>Site Administrator</description>
         <role-name>SiteAdmin</role-name>
     </security-role>
-
     <!-- Restrict access to all files in the /admin folder -->
     <security-constraint>
         <web-resource-collection>
@@ -142,7 +140,6 @@
             <role-name>SiteAdmin</role-name>
         </auth-constraint>
     </security-constraint>
-    
     <!-- Use form-based authentication -->
     <login-config>
         <auth-method>FORM</auth-method>
