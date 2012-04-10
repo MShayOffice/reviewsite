@@ -13,14 +13,12 @@
     </head>
     
         <script language="JavaScript">
+            ${movie.ID}==request.getParameter("ID");
+            
             function validate(form) {
                 if (form.userID.value=="") {
                     alert("Enter your UserID.");
                     form.userID.focus();
-                }
-                else if (form.movieID.value=="") {
-                    alert("Enter the MovieID.");
-                    form.movieID.focus();
                 }
                 else if (form.reviewText.value=="") {
                     alert("Type your review up please.");
@@ -38,8 +36,8 @@
 
         <body>
 
-        <h1>Please fill the fields to add a new movie.</h1>
-
+        <h1>Please fill the fields to add a new review for the movie.</h1>
+<%String ID = request.getParameter("ID");%>
         <form action="addReview" method="post">
             <table cellspacing="5" border="0">
                 <tr>
@@ -52,7 +50,7 @@
                 <tr>
                     <td align="right">MovieID:</td>
                     <td><input type="text" name="movieID" 
-                            value="">
+                            value=<%=ID%>>
                     </td>
                 </tr>
                 <tr>
