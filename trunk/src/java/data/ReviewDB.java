@@ -43,9 +43,11 @@ public class ReviewDB extends HttpServlet {
             rs = ps.executeQuery();
             rs.first();
             int id = (rs.getInt(1)+1);
+            int score = 0;
 
-            query = "INSERT INTO Reviews (ReviewID, UserID, MovieID, ReviewText, Rating)"
-                + "VALUES (?, ?, ?, ?, ?)";
+            
+            query = "INSERT INTO Reviews (ReviewID, UserID, MovieID, ReviewText, Rating, Score)"
+                + "VALUES (?, ?, ?, ?, ?, ?)";
 
             try
             {
@@ -55,6 +57,7 @@ public class ReviewDB extends HttpServlet {
                 ps.setString(3, review.getMovieID());
                 ps.setString(4, review.getReviewText());
                 ps.setString(5, review.getRating());
+                ps.setInt(6, score);
                 return ps.executeUpdate();
             }
             catch(SQLException e)
