@@ -22,7 +22,7 @@ public class Review implements Serializable
     private String rating;
     private String movieName;
     private int score;
-    private double average;
+    
     
     public Review()
     {
@@ -34,7 +34,7 @@ public class Review implements Serializable
         rating = "";
         movieName = "";
         score = 0;
-        average = 0.0;
+        
     }
     
     public Review(String reviewID, String userID, String userName, String movieID, String reviewText, String rating, String movieName, int score, double average)
@@ -47,7 +47,7 @@ public class Review implements Serializable
         this.rating = rating;
         this.movieName = movieName;
         this.score = score;
-        this.average = average;
+        
     }
     
     public void setReviewID(String z)
