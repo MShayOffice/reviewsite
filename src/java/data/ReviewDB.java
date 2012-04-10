@@ -53,7 +53,6 @@ public class ReviewDB extends HttpServlet {
             ps.setString(1, movieID);
             rs = ps.executeQuery();
             Review review = null;
-            User user = null;
             while (rs.next())
             {
                 review = new Review();
