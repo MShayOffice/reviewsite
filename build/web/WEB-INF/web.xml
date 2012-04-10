@@ -41,14 +41,17 @@
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
+        <url-pattern>/Secure/addMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddUserServlet</servlet-name>
         <url-pattern>/addUser</url-pattern>
+        <url-pattern>/Secure/addUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListMoviesServlet</servlet-name>
         <url-pattern>/listMovies</url-pattern>
+        <url-pattern>/Secure/listMovies</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ComfirmNewUserServlet</servlet-name>
@@ -56,22 +59,27 @@
     </servlet-mapping>    <servlet-mapping>
         <servlet-name>ReviewDB</servlet-name>
         <url-pattern>/ReviewDB</url-pattern>
+        <url-pattern>/Secure/ReviewDB</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListReviewsServlet</servlet-name>
         <url-pattern>/listReviews</url-pattern>
+        <url-pattern>/Secure/listReviews</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteMovieServlet</servlet-name>
         <url-pattern>/deleteMovie</url-pattern>
+        <url-pattern>/Secure/deleteMovie</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Review</servlet-name>
         <url-pattern>/Review</url-pattern>
+        <url-pattern>/Secure/Review</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditMovieServlet</servlet-name>
         <url-pattern>/editMovie</url-pattern>
+        <url-pattern>/Secure/editMovie</url-pattern>
     </servlet-mapping>
 <!--  This space is here to signify the end of the servlet mapping
       because regular spaces like to go away in this file-->    
@@ -83,4 +91,36 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+<!-- Define two security roles -->
+    <security-role>
+        <description>Review Recreator</description>
+        <role-name>ReviewCreator</role-name>
+    </security-role>
+    <security-role>
+        <description>Site Administrator</description>
+        <role-name>SiteAdmin</role-name>
+    </security-role>
+
+    <!-- Restrict access to all files in the /admin folder -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/Secure/*</url-pattern>
+        </web-resource-collection>
+        <!-- Authorize the programmer and service roles -->
+        <auth-constraint>
+            <role-name>ReviewCreator</role-name>
+            <role-name>SiteAdmin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <!-- Use form-based authentication -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/login_error.html</form-error-page>
+        </form-login-config>
+    </login-config>
 </web-app>
