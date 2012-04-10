@@ -45,7 +45,7 @@
                 <td>${reviews.score} people found it helpful.</td>
             </tr>
             <tr>
-                <td><b><a href="deleteReview?ID=${review.reviewID}" onClick="return confirm('Are you sure you want to delete this review?')">Delete This Review</a></b></td>
+                <td><b><a href="deleteReview?ID=${reviews.reviewID}" onClick="return confirm('Are you sure you want to delete this review?')">Delete This Review</a></b></td>
             </tr>
         </table>
         <br>
