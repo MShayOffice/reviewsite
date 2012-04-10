@@ -46,7 +46,7 @@ User Servlet Classes
         <servlet-name>ListUsersServlet</servlet-name>
         <servlet-class>user.ListUsersServlet</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>ListUserReviewServlet</servlet-name>
         <servlet-class>user.ListUserReviewServlet</servlet-class>
     </servlet>
@@ -61,7 +61,10 @@ User Servlet Classes
     <!--
 Movie Servlet Mapping
 -->
-
+    <servlet>
+        <servlet-name>AverageScoreServlet</servlet-name>
+        <servlet-class>movie.AverageScoreServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddMovieServlet</servlet-name>
         <url-pattern>/addMovie</url-pattern>
@@ -129,7 +132,10 @@ User Servlet Mapping
     <!--
 Config stuff    
 -->
-
+    <servlet-mapping>
+        <servlet-name>AverageScoreServlet</servlet-name>
+        <url-pattern>/averageScore</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

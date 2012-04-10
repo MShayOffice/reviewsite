@@ -6,6 +6,8 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +27,9 @@
             </tr>
             <tr>
                 <td><b>Average Rating</b></td>
-                <td></td>
+                <td>
+                    
+                </td>
             </tr>
         </table>
         <!--<br><a href="editMovie.jsp" method="get">Edit this movie</a>-->
