@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jason Wong
  */
-public class ComfirmNewUserServlet extends HttpServlet {
+public class ConfirmNewUserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
