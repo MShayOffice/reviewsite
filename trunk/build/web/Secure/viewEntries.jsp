@@ -19,12 +19,12 @@
             <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
             <c:forEach var="movie" items="${movies}">
                 <tr>
-                    <td><a href="listReviews?ID=${movie.ID}" method="get">${movie.name}</a></td>
-                    <!--<td><a href="deleteMovie?ID=${movie.ID}" onClick="return confirm('Do you want to delete this movie?')">X</a></td>-->
+                    <td><a href="listReviews?ID=${movie.ID}&s=secure" method="get">${movie.name}</a></td>
+                    <td><a href="deleteMovie?ID=${movie.ID}" onClick="return confirm('Do you want to delete this movie?')">X</a></td>
                 </tr>
             </c:forEach>
         </table>
-        <!--<br><a href="addMovie.jsp" method="get">Add a New Movie</a>-->
+        <br><a href="addMovie.jsp" method="get">Add a New Movie</a>
         
     </body>
 </html>

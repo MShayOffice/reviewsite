@@ -27,8 +27,8 @@ import javax.servlet.http.*;
         Movie movie = MovieDB.findMovie(movieID);
         
         ArrayList<Review> reviews = new ArrayList<Review>();
-        
         reviews = ReviewDB.selectReview(movieID);
+        
         System.out.println(reviews);
         session.setAttribute("movie", movie);
         session.setAttribute("reviews", reviews);
