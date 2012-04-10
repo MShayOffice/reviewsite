@@ -14,7 +14,7 @@
     <body>
         <h1>Main Page</h1>
         <p>Please select an option: </p>
-        <a href="listMovies" method="get">View Movies and Reviews</a><br>
+        <a href="listMovies?s=secure" method="get">View Movies and Reviews</a><br>
     </body>
 </html>
 

@@ -27,7 +27,16 @@ public class ListMoviesServlet extends HttpServlet
         
         session.setAttribute("movies", movies);
         
-        String url = "/viewEntries.jsp";
+        String url;
+        String strSecure = request.getParameter("s");
+        
+        if(strSecure == null)       
+            url = "/viewEntries.jsp";
+        else if(strSecure.equals("secure"))
+            url = "/Secure/viewEntries.jsp";    
+        else 
+            url = "/viewEntries.jsp";
+        
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);                

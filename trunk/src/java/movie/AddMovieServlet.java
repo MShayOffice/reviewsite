@@ -28,7 +28,7 @@ public class AddMovieServlet extends HttpServlet {
         movie.setDescription(description);
         MovieDB.add(movie);
         
-        String url = "/listMovies";
+        String url = "/listMovies?s=secure";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
