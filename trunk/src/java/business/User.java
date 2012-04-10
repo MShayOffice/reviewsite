@@ -19,22 +19,15 @@ public class User implements Serializable
         //userrole = "";
     }
     
-    public User(String userID, String username, String password, String emailAddress)
+    public User(String id, String name, String pass, String email)
     {
-        this.userID = userID;
-        this.username = username;
-        this.password = password;
-        this.emailAddress = emailAddress;
+        userID = id;
+        username = name;
+        password = pass;
+        emailAddress = email;
+//        userrole = role;
     }
 
-//    public User(String username, String password, String emailAddress, String userRole)
-//    {
-//        this.username = username;
-//        this.password = password;
-//        this.emailAddress = emailAddress;
-//        this.userrole = userRole;
-//    }
-    
     public void setUserID(String i)
     {
         userID = i;

@@ -11,26 +11,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User Managing</title>
+        <title>Manage Users</title>
     </head>
     
     <body>
         <h1>User Management</h1>
         
-        <table cellpadding=10 border=1>
+        <table cellpadding=5 border=1>
+            <tr>
+                <td><b>Username</b></td>
+                <td><b>User ID</b></td>
+                <td><b>Email Address</b></td>
+            </tr>
             <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-            <c:forEach var="users" items="${users}">
+            <c:forEach var="user" items="${users}">
                 <tr>
-                    <td><b>User</b></td>
-                    <td><b>${users.userID}</td>
-                   
-                    <td><a href="deleteUser?ID=${users.userID}" onClick="return confirm('Are you sure you want to delete this user?')">Delete This User</a></td>
+                    <td>${user.userName}</td>
+                    <td>${user.userID}</td>
+                    <td>${user.emailAddress}</td>
+                    <td><a href="deleteUser?ID=${user.userID}" onClick="return confirm('Are you sure you want to delete this user?')">Delete This User</a></td>
                 </tr>
             </c:forEach>
         </table>
-            Well it works. Just not names. <br>
-                user.username works, but it doesn't actually give names<br>
-                users.username just fucking makes it mad
-                
     </body>
 </html>
