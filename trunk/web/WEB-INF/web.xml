@@ -36,6 +36,18 @@
         <servlet-name>EditMovieServlet</servlet-name>
         <servlet-class>movie.EditMovieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>user.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListUserServlet</servlet-name>
+        <servlet-class>user.ListUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUserServlet</servlet-name>
+        <servlet-class>user.EditUserServlet</servlet-class>
+    </servlet>
 <!--  This space is here to split the classes and URL patterns
       because regular spaces like to go away in this file-->    
     <servlet-mapping>
