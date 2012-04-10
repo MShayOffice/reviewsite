@@ -137,7 +137,7 @@ public class MovieDB {
 
         ArrayList<MovieItem> movies=new ArrayList<MovieItem>();
         
-        String query = "SELECT * FROM Movies ORDER BY MovieName ASC";
+        String query = "SELECT *, (Select avg(Rating)   From Reviews WHERE Reviews.MovieID =Movies.MovieID) Average FROM Movies ORDER BY MovieName ASC";
         
         try
         {   
@@ -150,6 +150,7 @@ public class MovieDB {
                 movie = new MovieItem();
                 movie.setID(rs.getString("MovieID"));
                 movie.setName(rs.getString("MovieName"));
+                movie.setAverage(rs.getDouble("Average"));
                 movies.add(movie);
             }
         }

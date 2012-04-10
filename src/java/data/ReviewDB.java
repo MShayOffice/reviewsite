@@ -95,12 +95,12 @@ public class ReviewDB extends HttpServlet {
         System.out.println(movieID);
         
         //String query = "Select UserID, MovieID, ReviewText, Rating FROM Reviews WHERE MovieID =?";
-       String query = "SELECT ReviewID, Reviews.UserID, UserName, Reviews.MovieID,"
-                + " ReviewText, Rating, Score "
-                + "FROM Reviews "
-                + "INNER JOIN Users on Reviews.UserID = Users.UserID "
-                + "JOIN Movies on Reviews.MovieID = Movies.MovieID "
-                + "WHERE Reviews.MovieID = ?";
+       String query = "SELECT ReviewID, Reviews.UserID, UserName, Reviews.MovieID, ReviewText, "
+               + "Rating, Score "
+               + "FROM Reviews "
+               + "INNER JOIN Users on Reviews.UserID = Users.UserID "
+               + "JOIN Movies on Reviews.MovieID = Movies.MovieID "
+               + "WHERE Reviews.MovieID = ?";
         try
         {   
             
@@ -118,6 +118,7 @@ public class ReviewDB extends HttpServlet {
                 review.setReviewText(rs.getString("ReviewText"));
                 review.setRating(rs.getString("Rating"));
                 review.setScore(rs.getInt("Score"));
+                
                 reviews.add(review);
                 
             }

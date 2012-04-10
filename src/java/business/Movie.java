@@ -13,6 +13,7 @@ public class Movie implements Serializable
     private String movieName;
     private String year;
     private String description;
+    private double average;
     
     public Movie()
     {
@@ -20,14 +21,16 @@ public class Movie implements Serializable
         movieName = "";
         year = "";
         description = "";
+        average = 0;
     }
     
-    public Movie(String id, String name, String yr, String desc)
+    public Movie(String id, String name, String yr, String desc, double average)
     {
         movieID = id;
         movieName = name;
         year = yr;
         description = desc;
+        average = 0;
     }
     
     public void setID(String i)
@@ -69,4 +72,5 @@ public class Movie implements Serializable
     {
         return description;
     }
+    
 }

@@ -28,7 +28,7 @@
             <tr>
                 <td><b>Average Rating</b></td>
                 <td>
-                    
+                    <%= request.getParameter("average") %>
                 </td>
             </tr>
         </table>
