@@ -4,9 +4,10 @@
     Author     : Kyle
 --%>
 
-<%@page import="data.UserDB"%>
-<%@page import="business.User"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,10 +27,17 @@
             </tr>
             <tr>
                 <td><b>Average Rating</b></td>
-                <td></td>
+                <td>
+                    <%= request.getParameter("average") %>
+                </td>
+            </tr>
+            <tr>
+                <td><b><a href="editMovie.jsp" method="get">Edit this movie</a></td>
+                <td><a href="addReview.jsp?ID=${movie.ID}" method="get">Write Review</a></td>
             </tr>
         </table>
-        <br><a href="editMovie.jsp" method="get">Edit this movie</a>
+            
+        <!--<br><a href="editMovie.jsp" method="get">Edit this movie</a>-->
 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:forEach var="reviews" items="${reviews}">
@@ -55,7 +63,7 @@
         <br>
     </c:forEach>
         <br>
-        <form action="listMovies?s=secure" method="post">
+        <form action="listMovies" method="post">
             <input type="submit" value="Back to Movie List">
         </form>
     </body>
