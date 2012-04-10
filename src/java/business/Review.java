@@ -14,31 +14,46 @@ import java.io.Serializable;
 
 public class Review implements Serializable
 {
+    private String reviewID;
     private String userID;
     private String userName;
     private String movieID;
     private String reviewText;
     private String rating;
+    private String movieName;
     private int score;
     
     public Review()
     {
+        reviewID = "";
         userID = "";
         userName = "";
         movieID = "";
         reviewText = "";
         rating = "";
+        movieName = "";
         score = 0;
     }
     
-    public Review(String userID, String userName, String movieID, String reviewText, String rating, int score)
+    public Review(String reviewID, String userID, String userName, String movieID, String reviewText, String rating, String movieName, int score)
     {
+        this.reviewID = reviewID;
         this.userID = userID;
         this.userName = userName;
         this.movieID = movieID;
         this.reviewText = reviewText;
         this.rating = rating;
+        this.movieName = movieName;
         this.score = score;
+    }
+    
+    public void setReviewID(String z)
+    {
+        reviewID = z;
+    }
+    public String getReviewID()
+    {
+        return reviewID;
     }
     
     public void setUserID(String u)
@@ -86,6 +101,17 @@ public class Review implements Serializable
     { 
         return userName; 
     }
+    
+    public void setMovieName(String q)
+    {
+        movieName = q;
+    }
+    public String getMovieName()
+    {
+        return movieName;
+    }
+    
+    
     public void setScore(int s)
     {
         score = s;

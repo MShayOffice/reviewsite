@@ -431,8 +431,7 @@ public class UserDB
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM Users " +
-                       "WHERE UserID = ?";
+        String query = "SELECT * FROM Users WHERE UserID = ?";
         try
         {
             ps = connection.prepareStatement(query);
@@ -442,6 +441,7 @@ public class UserDB
             if (rs.next())
             {
                 user = new User();
+                user.setUserID(rs.getString("userID"));
                 user.setUserName(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setEmailAddress(rs.getString("emailAddress"));

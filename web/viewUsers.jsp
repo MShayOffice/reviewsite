@@ -26,7 +26,7 @@
             <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
             <c:forEach var="user" items="${users}">
                 <tr>
-                    <td>${user.userName}</td>
+                    <td><a href="listUserReview?ID=${user.userID}" method="get">${user.userName}</a></td>
                     <td>${user.userID}</td>
                     <td>${user.emailAddress}</td>
                     <td><a href="deleteUser?ID=${user.userID}" onClick="return confirm('Are you sure you want to delete this user?')">Delete This User</a></td>

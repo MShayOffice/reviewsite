@@ -12,16 +12,16 @@ and had to troubleshoot, heh.
 <Context antiJARLocking="true" path="/ReviewSite">
     <Resource name="jdbc/murach" auth="Container" 
         maxActive="100" maxIdle="30" maxWait="10000" 
-        username="root" password="" 
+        username="root" password="sesame" 
         driverClassName="com.mysql.jdbc.Driver" 
-        url="jdbc:mysql://localhost:3306/murach?autoReconnect=true" 
+        url="jdbc:mysql://localhost:3456/murach?autoReconnect=true" 
         logAbandoned="true" removeAbandoned="true" 
         removeAbandonedTimeout="60" type="javax.sql.DataSource" />
         
     <Realm className="org.apache.catalina.realm.JDBCRealm" debug="99"
           driverName="com.mysql.jdbc.Driver"
-          connectionURL="jdbc:mysql://localhost:3306/murach?autoReconnect=true"
-          connectionName="root" connectionPassword=""
+          connectionURL="jdbc:mysql://localhost:3456/murach?autoReconnect=true"
+          connectionName="root" connectionPassword="sesame"
           userTable="users" userNameCol="Username" userCredCol="Password"
           userRoleTable="userrole" roleNameCol="Rolename" />
 </Context>
