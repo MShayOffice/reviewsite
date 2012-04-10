@@ -211,18 +211,20 @@ public class UserDB
         }
     }
     
-    public static int delete(User user)
+    public static int delete(String userID)
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         
-        String query = "DELETE FROM Users " +
-                "WHERE Email = ?";
+        String id = userID;
+        
+        String query = "DELETE FROM Users WHERE UserID = ?";
+        
         try
         {
             ps = connection.prepareStatement(query);
-            ps.setString(1, user.getEmailAddress());
+            ps.setString(1, id);
 
             return ps.executeUpdate();
         }
@@ -341,8 +343,7 @@ public class UserDB
 
     public static ArrayList<User> selectUsers()
     {
-        // TODO: add code that returns an ArrayList of User objects
-        // that corresponds with the rows in the User table
+        
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -360,6 +361,7 @@ public class UserDB
             while (rs.next())
             {
                 user = new User();
+                user.setUserID(rs.getString("UserID"));
                 user.setUserName(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setEmailAddress(rs.getString("emailAddress"));
@@ -378,6 +380,49 @@ public class UserDB
         }
         return users;
     }
+    
+    /*public static ArrayList<User> listUsers()
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        ArrayList<User> users=new ArrayList<User>();
+        
+        String query = "SELECT * FROM Users ORDER BY UserName ASC";
+        
+        try
+        {   
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            User user = null;
+            
+            while (rs.next())
+            {
+                user = new User();
+                user.setUserID(rs.getString("userID"));
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmailAddress(rs.getString("emailAddress"));
+                users.add(user);
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }        
+        finally
+        {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        return users;
+        
+    }
+    */
+    
     public static User selectUserByUserID(String userID)
     {
         ConnectionPool pool = ConnectionPool.getInstance();

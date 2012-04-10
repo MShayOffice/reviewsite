@@ -20,11 +20,11 @@
     </tr>
     <tr>
         <td align="right">Password:</td>
-      <td><input type="text" name="password"></td>
+        <td><input type="password" name="password" value="" /></td>
     </tr>
     <tr>
       <td></td>
-      <td><br><input type="submit" value="Submit"></td>
+      <td><br><a href="listMovies" method="get"><input type="submit" value="Submit"></a></td>
     </tr>
   </table>
     </body>
