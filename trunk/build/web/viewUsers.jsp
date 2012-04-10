@@ -17,15 +17,14 @@
         
         <table cellpadding=5 border=0>
             <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-            <c:forEach var="user" items="${users}">
+            <c:forEach var="users" items="${users}">
                 <tr>
                     <td><b>User</b></td>
-                    <td><b>${user.userID}</td>
-                    <td><b>${user.username}</td>
-                    <td><a href="deleteUser?ID=${user.userID}" onClick="return confirm('Are you sure you want to delete this user?')">Delete This User</a></td>
+                    <td><b>${users.userID}</td>
+                    <td><b>${users.username}</td>
+                    <td><a href="deleteUser?ID=${users.userID}" onClick="return confirm('Are you sure you want to delete this user?')">Delete This User</a></td>
                 </tr>
             </c:forEach>
-                <p>Well then, let's see if this works</p>
         </table>
                 
     </body>
