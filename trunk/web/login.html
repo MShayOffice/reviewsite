@@ -8,16 +8,7 @@
 <h1>Admin Login Form</h1>
 <p>Please enter your username and password to continue.</p>
 <table cellspacing="5" border="0">
-  <form action="j_security_check" method="post">
-      
-    <%@ page import="javax.servlet.http.*" %>
-    <%@ page import="javax.servlet" %>
-    <%
-        HttpSession session = request.getSession();
-        
-    %>
-    
-      
+  <form action="j_security_check" method="post"> 
     <tr>
         <td align="right">Username</td>
         <td><input type="text" name="j_username"></td>
