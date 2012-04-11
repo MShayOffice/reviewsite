@@ -35,7 +35,7 @@ public class AddReviewServlet extends HttpServlet {
         review.setRating(rating);
         ReviewDB.add(review);
         
-        String url = "/index.jsp";
+        String url = "/Secure/index.jsp";
         RequestDispatcher dispatcher =
               getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
