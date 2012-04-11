@@ -1,31 +1,43 @@
-<%-- 
-    Document   : login
-    Created on : Apr 1, 2012, 2:14:22 PM
-    Author     : Kyle
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
-    </head>
-    <body>
-        <h1>Login</h1>
-    <table cellspacing="5" border="0">
+<head>
+    <title>Review Movie Site!</title>
+</head>
+
+<body>
+<h1>Admin Login Form</h1>
+<p>Please enter your username and password to continue.</p>
+<table cellspacing="5" border="0">
+  <form action="j_security_check" method="post">
+      
+    <%@ page import="javax.servlet.http.*" %>
+    <%@ page import="javax.servlet.*" %>
+    <%@ page import="business.User" %>
+    <%
+        User u = new User();
+        u =
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("user", u);
+        
+    %>
+    
+      
     <tr>
-      <td align="right">Username:</td>
-      <td><input type="text" name="userName"></td>
+        <td align="right">Username</td>
+        <td><input type="text" name="j_username"></td>
     </tr>
     <tr>
-        <td align="right">Password:</td>
-        <td><input type="password" name="password" value="" /></td>
+        <td align="right">Password</td>
+        <td><input type="password" name="j_password"></td>
     </tr>
     <tr>
-      <td></td>
-      <td><br><a href="listMovies" method="get"><input type="submit" value="Submit"></a></td>
+      <td><input type="submit" value="Login"></td>
     </tr>
-  </table>
-    </body>
+  </form>
+</table>
+<br>
+<br>
+<a href="..\index.jsp">back to main page</a>
+</body>
 </html>

@@ -37,13 +37,19 @@
         <body>
 
         <h1>Please fill the fields to add a new review for the movie.</h1>
-<%String ID = request.getParameter("ID");%>
+
+        <%@ page import="business.User" %>
+        <%
+            String ID = request.getParameter("ID");
+            User u = (User) session.getAttribute("user");
+        %>
+        
         <form action="addReview" method="post">
             <table cellspacing="5" border="0">
                 <tr>
                     <td align="right">UserID:</td>
                     <td><input type="text" name="userID" 
-                            value="">
+                            value=<%= u.getUserID()%>>
                     </td>
                 </tr>
                 
