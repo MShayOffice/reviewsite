@@ -12,10 +12,6 @@
         
 
 <style type="text/css">
-h1{
-color:#E0E01B;
-}
-
 p{
 color:black;
 }
@@ -30,6 +26,9 @@ wdith:90%;
 align:center;
 }
 
+    td{width:90%;}
+    tr{width:90%;}
+
 </style>
 
 
@@ -42,9 +41,12 @@ align:center;
         <header></header>
         <h1>Main Page</h1>
         <p>Please select an option: </p>
-        <a href="registerUser.jsp" method="get">User Registration</a><br>
-        <a href="Secure/index.jsp" method="get">Login</a><br><br>
-        <a href="listMovies" method="get">View Movies and Reviews</a><br>
+        <br><br><br>
+        
+            <a href="registerUser.jsp" method="get">User Registration</a><br>
+                <a href="Secure/index.jsp" method="get">Login</a><br><br>
+                <a href="listMovies" method="get">View Movies and Reviews</a><br>
+        
         
     </body>
 </html>
