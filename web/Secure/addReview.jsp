@@ -47,9 +47,9 @@
         <form action="addReview" method="post">
             <table cellspacing="5" border="0">
                 <tr>
-                    <td align="right">UserID:</td>
-                    <td><input type="text" name="userID" 
-                            value=<%= u.getUserID()%>>
+                    <td align="right">UserName:</td>
+                    <td><input type="hidden" name="userID" 
+                            value=<%= u.getUserID()%> readonly="readonly"/><%= u.getUserName()%> 
                     </td>
                 </tr>
                 
