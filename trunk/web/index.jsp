@@ -9,9 +9,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+<style type="text/css">
+h1{
+color:#E0E01B;
+}
+
+p{
+color:black;
+}
+
+th{
+color:#E0E01B;
+}
+
+table{
+table-layout:fixed;
+wdith:90%;
+align:center;
+}
+
+</style>
+
+
         <title>Main Page</title>
-    </head>
+    </head
+    
     <body>
+<!--<center> <img src="C:\Users\Sheldon\Documents\NetBeansProjects\ReviewSite\Images\filmstrip" width=100% height=60 border=1 ALT="Click to Visit"></a> </center>-->
+        
+        <header></header>
         <h1>Main Page</h1>
         <p>Please select an option: </p>
         <a href="registerUser.jsp" method="get">User Registration</a><br>
